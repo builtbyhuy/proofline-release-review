@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Independent frontend implementation sample by Ho Khac Huy.">
+  <title>Proofline Release Review - Independent UI Sample</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #162536;
+      --ink-soft: #506071;
+      --navy: #12283a;
+      --navy-2: #1d3a4e;
+      --paper: #f3f0e9;
+      --surface: #fffdf9;
+      --surface-2: #f8f5ef;
+      --line: #d8d2c7;
+      --line-strong: #b7aea0;
+      --accent: #c65f2f;
+      --accent-soft: #f5ded1;
+      --green: #236547;
+      --green-soft: #dcebe2;
+      --amber: #866116;
+      --amber-soft: #f4e8c6;
+      --red: #9a3e36;
+      --red-soft: #f5dedb;
+      --blue: #275b86;
+      --blue-soft: #dce8f1;
+      --focus: #087ea4;
+      --shadow: 0 20px 56px rgba(22, 37, 54, 0.11);
+      --radius: 12px;
+      --radius-small: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--paper); }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(18, 40, 58, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 40, 58, 0.035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 32px 32px;
+      font-family: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    button { font: inherit; }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 20;
+      top: 12px;
+      left: 12px;
+      padding: 10px 14px;
+      color: white;
+      background: var(--navy);
+      border-radius: 6px;
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .app-shell {
+      width: min(1440px, calc(100% - 48px));
+      min-height: calc(100vh - 48px);
+      margin: 24px auto;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 232px minmax(0, 1fr);
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 28px 20px 22px;
+      color: #f6f1e8;
+      background: var(--navy);
+      border-right: 1px solid #0c1d2a;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 36px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 9px;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      height: 2px;
+      background: #f5a173;
+    }
+
+    .brand-mark::before { top: 11px; width: 18px; }
+    .brand-mark::after { top: 20px; width: 12px; }
+
+    .brand-name {
+      display: block;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-sub {
+      display: block;
+      margin-top: 1px;
+      color: #9fb0bd;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-label {
+      margin: 0 0 10px 12px;
+      color: #8094a3;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-height: 42px;
+      padding: 9px 12px;
+      color: #b8c4cd;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .nav-item svg { width: 17px; height: 17px; }
+
+    .nav-item.active {
+      color: white;
+      background: var(--navy-2);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-item.active::after {
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin-left: auto;
+      background: #f5a173;
+      border-radius: 50%;
+    }
+
+    .sidebar-note {
+      margin-top: auto;
+      padding: 14px;
+      color: #b5c2cb;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 10px;
+      font-size: 12px;
+    }
+
+    .sidebar-note strong {
+      display: block;
+      margin-bottom: 4px;
+      color: white;
+      font-size: 12px;
+    }
+
+    .content { min-width: 0; background: var(--surface); }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      padding: 14px 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .crumb {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .crumb strong { color: var(--ink); font-weight: 650; }
+    .crumb-separator { color: var(--line-strong); }
+
+    .sample-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      max-width: 420px;
+      padding: 7px 10px;
+      color: #6e442e;
+      background: var(--accent-soft);
+      border: 1px solid #e7b89f;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+    }
+
+    .sample-label::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      flex: 0 0 auto;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .page {
+      padding: 34px 36px 38px;
+    }
+
+    .page-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 7px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(30px, 3.2vw, 46px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .state-picker {
+      min-width: 320px;
+    }
+
+    .state-picker-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .state-buttons {
+      display: inline-flex;
+      padding: 3px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .state-button {
+      min-height: 34px;
+      padding: 7px 12px;
+      color: var(--ink-soft);
+      background: transparent;
+      border: 0;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 650;
+      transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+    }
+
+    .state-button[aria-pressed="true"] {
+      color: white;
+      background: var(--navy);
+      box-shadow: 0 2px 7px rgba(18, 40, 58, 0.18);
+    }
+
+    .status-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-bottom: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-2);
+    }
+
+    .status-item {
+      min-width: 0;
+      padding: 16px 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .status-item:last-child { border-right: 0; }
+
+    .status-kicker {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink-soft);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 0.085em;
+      text-transform: uppercase;
+    }
+
+    .status-value {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 0;
+      font-weight: 650;
+    }
+
+    .status-value span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .dot { width: 8px; height: 8px; flex: 0 0 auto; border-radius: 50%; }
+    .dot-green { background: #2c815c; }
+    .dot-amber { background: #b78525; }
+
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(260px, 0.75fr);
+      gap: 20px;
+    }
+
+    .panel {
+      min-width: 0;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .panel-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 62px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .panel-heading h2 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .panel-meta { color: var(--ink-soft); font-size: 12px; }
+
+    .queue-list { margin: 0; padding: 0; list-style: none; }
+
+    .queue-row {
+      display: grid;
+      grid-template-columns: minmax(160px, 1.5fr) minmax(120px, 1fr) 96px 28px;
+      align-items: center;
+      gap: 14px;
+      min-height: 69px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .queue-row:last-child { border-bottom: 0; }
+
+    .queue-row.selected {
+      background: linear-gradient(90deg, rgba(198, 95, 47, 0.09), transparent 62%);
+      box-shadow: inset 3px 0 0 var(--accent);
+    }
+
+    .queue-title { min-width: 0; }
+    .queue-title strong { display: block; overflow-wrap: anywhere; font-size: 13px; }
+    .queue-title span { display: block; margin-top: 3px; color: var(--ink-soft); font-size: 11px; }
+    .owner { color: var(--ink-soft); font-size: 12px; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 25px;
+      padding: 4px 8px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 0.035em;
+      text-transform: uppercase;
+    }
+
+    .badge-green { color: var(--green); background: var(--green-soft); border-color: #b8d4c4; }
+    .badge-amber { color: var(--amber); background: var(--amber-soft); border-color: #e5cf92; }
+    .badge-blue { color: var(--blue); background: var(--blue-soft); border-color: #b8d0e1; }
+
+    .row-action {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      color: var(--ink-soft);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .row-action:hover { background: var(--surface-2); border-color: var(--line); }
+
+    .detail {
+      margin: 0 18px 18px;
+      padding: 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .detail-label {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .detail h3 { margin-bottom: 8px; font-size: 17px; }
+    .detail p { margin-bottom: 14px; color: var(--ink-soft); font-size: 13px; }
+
+    .acceptance-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .acceptance-list li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 9px;
+      align-items: start;
+      font-size: 12px;
+    }
+
+    .check {
+      display: grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      color: white;
+      background: var(--green);
+      border-radius: 50%;
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    .decision-panel { align-self: start; }
+
+    .decision-body { padding: 20px; }
+
+    .decision-score {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .decision-score strong { font-size: 46px; font-weight: 500; line-height: 1; }
+    .decision-score span { color: var(--ink-soft); font-size: 16px; }
+    .decision-copy { margin-bottom: 18px; color: var(--ink-soft); font-size: 12px; }
+
+    .progress {
+      height: 7px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      background: #e7e1d7;
+      border-radius: 999px;
+    }
+
+    .progress > span { display: block; width: 80%; height: 100%; background: var(--green); }
+
+    .gate-list { display: grid; gap: 12px; margin: 0 0 20px; padding: 0; list-style: none; }
+    .gate-list li { display: grid; grid-template-columns: 20px 1fr; gap: 9px; align-items: start; font-size: 12px; }
+    .gate-list strong { display: block; margin-bottom: 1px; font-size: 12px; }
+    .gate-list span { color: var(--ink-soft); font-size: 11px; }
+
+    .gate-icon {
+      display: grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      color: var(--green);
+      background: var(--green-soft);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .gate-icon.pending { color: var(--amber); background: var(--amber-soft); }
+
+    .primary-button,
+    .secondary-button {
+      width: 100%;
+      min-height: 42px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .primary-button { color: white; background: var(--accent); border: 1px solid #9f4420; }
+    .primary-button:hover { background: #af4e24; }
+    .secondary-button { color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); }
+
+    .state-view[hidden] { display: none !important; }
+
+    .system-state {
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      padding: 36px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      text-align: center;
+    }
+
+    .system-state-inner { width: min(520px, 100%); }
+
+    .state-symbol {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 18px;
+      color: var(--navy);
+      background: var(--surface-2);
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      font-family: Georgia, serif;
+      font-size: 24px;
+    }
+
+    .system-state h2 { margin-bottom: 7px; font-family: Georgia, serif; font-size: 27px; font-weight: 500; }
+    .system-state p { margin: 0 auto 18px; color: var(--ink-soft); font-size: 13px; }
+
+    .error-state { background: #fffaf8; border-color: #dfb5af; }
+    .error-state .state-symbol { color: var(--red); background: var(--red-soft); border-color: #dfb5af; }
+
+    .skeleton-shell {
+      width: 100%;
+      min-height: 430px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .skeleton {
+      background: linear-gradient(90deg, #ebe6dd 25%, #f7f4ee 50%, #ebe6dd 75%);
+      background-size: 200% 100%;
+      border-radius: 5px;
+      animation: shimmer 1.2s linear infinite;
+    }
+
+    .skeleton-head { width: 34%; height: 22px; margin-bottom: 26px; }
+    .skeleton-strip { height: 76px; margin-bottom: 20px; }
+    .skeleton-grid { display: grid; grid-template-columns: 1.7fr 0.8fr; gap: 20px; }
+    .skeleton-tall { height: 266px; }
+
+    @keyframes shimmer { to { background-position-x: -200%; } }
+
+    .screen-reader-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1040px) {
+      .app-shell { width: calc(100% - 24px); margin: 12px auto; grid-template-columns: 196px minmax(0, 1fr); }
+      .sidebar { padding-inline: 14px; }
+      .page { padding: 28px 24px 32px; }
+      .topbar { padding-inline: 24px; }
+      .page-heading { align-items: start; flex-direction: column; }
+      .state-picker { min-width: 0; }
+      .workspace-grid { grid-template-columns: minmax(0, 1fr); }
+      .decision-panel { width: 100%; }
+      .decision-body { display: grid; grid-template-columns: 0.8fr 1.4fr; gap: 18px; }
+      .primary-button { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 760px) {
+      body { background: var(--paper); }
+      .app-shell { width: 100%; min-height: 100vh; margin: 0; display: block; border: 0; border-radius: 0; box-shadow: none; }
+      .sidebar { min-height: 68px; padding: 14px 18px; flex-direction: row; align-items: center; }
+      .brand { margin: 0; }
+      .brand-mark { width: 31px; height: 31px; }
+      .brand-mark::before { left: 6px; top: 10px; }
+      .brand-mark::after { left: 6px; top: 19px; }
+      .brand-sub { display: none; }
+      .nav-label, .nav-list, .sidebar-note { display: none; }
+      .topbar { min-height: 61px; padding: 10px 18px; }
+      .crumb { display: none; }
+      .sample-label { max-width: 100%; font-size: 9px; }
+      .page { padding: 24px 18px 30px; }
+      .page-heading { margin-bottom: 22px; gap: 20px; }
+      h1 { font-size: 34px; }
+      .subtitle { font-size: 13px; }
+      .state-buttons { width: 100%; overflow-x: auto; }
+      .state-button { flex: 1 0 auto; }
+      .status-strip { grid-template-columns: 1fr 1fr; }
+      .status-item:nth-child(2) { border-right: 0; }
+      .status-item:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
+      .status-item { padding: 13px 14px; }
+      .queue-row { grid-template-columns: minmax(0, 1fr) auto; gap: 9px; padding: 13px 14px; }
+      .owner { display: none; }
+      .row-action { grid-column: 2; grid-row: 1; }
+      .badge { grid-column: 2; grid-row: 2; }
+      .detail { margin: 0 12px 12px; padding: 15px; }
+      .decision-body { display: block; }
+      .system-state { min-height: 360px; padding: 26px 20px; }
+      .skeleton-shell { min-height: 360px; }
+      .skeleton-grid { grid-template-columns: 1fr; }
+      .skeleton-tall:last-child { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to release review</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="#main-content" aria-label="Proofline home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <span class="brand-name">Proofline</span>
+          <span class="brand-sub">Release review</span>
+        </span>
+      </a>
+      <p class="nav-label">Workspace</p>
+      <nav aria-label="Workspace">
+        <ul class="nav-list">
+          <li><a class="nav-item active" href="#main-content" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>Release review</a></li>
+          <li><a class="nav-item" href="#queue"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 6h14M5 12h14M5 18h9"/></svg>Requirements</a></li>
+          <li><a class="nav-item" href="#decision"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m5 12 4 4L19 6"/></svg>Acceptance</a></li>
+          <li><a class="nav-item" href="#decision"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h12v18H6zM9 8h6M9 12h6M9 16h4"/></svg>Release notes</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-note">
+        <strong>Review principle</strong>
+        A release is ready only when every decision has an owner and reproducible evidence.
+      </div>
+    </aside>
+
+    <div class="content">
+      <header class="topbar">
+        <div class="crumb"><span>Workspace</span><span class="crumb-separator">/</span><strong>Release 08</strong></div>
+        <span class="sample-label">Independent sample - fictional data - not client work</span>
+      </header>
+
+      <main class="page" id="main-content" tabindex="-1">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Release 08 / Customer import</p>
+            <h1>Make the decision visible.</h1>
+            <p class="subtitle">A compact review workspace that turns ambiguous release discussions into owned requirements, test evidence, and an explicit ship decision.</p>
+          </div>
+          <div class="state-picker">
+            <span class="state-picker-label">Preview interface state</span>
+            <div class="state-buttons" aria-label="Preview interface state">
+              <button class="state-button" type="button" data-state-control="ready" aria-pressed="true">Ready</button>
+              <button class="state-button" type="button" data-state-control="loading" aria-pressed="false">Loading</button>
+              <button class="state-button" type="button" data-state-control="empty" aria-pressed="false">Empty</button>
+              <button class="state-button" type="button" data-state-control="error" aria-pressed="false">Error</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="state-announcement" class="screen-reader-only" role="status" aria-live="polite">Ready state shown.</div>
+
+        <section class="state-view" data-state-view="ready" aria-label="Ready release review state">
+          <div class="status-strip" aria-label="Release summary">
+            <div class="status-item"><span class="status-kicker">Environment</span><span class="status-value"><span class="dot dot-green"></span><span>Staging healthy</span></span></div>
+            <div class="status-item"><span class="status-kicker">Decision owner</span><span class="status-value"><span>Mai Nguyen</span></span></div>
+            <div class="status-item"><span class="status-kicker">Target</span><span class="status-value"><span>18 Jul, 16:00 ICT</span></span></div>
+            <div class="status-item"><span class="status-kicker">Open gate</span><span class="status-value"><span class="dot dot-amber"></span><span>1 evidence item</span></span></div>
+          </div>
+
+          <div class="workspace-grid">
+            <section class="panel" id="queue" aria-labelledby="queue-title">
+              <div class="panel-heading"><h2 id="queue-title">Acceptance queue</h2><span class="panel-meta">5 requirements</span></div>
+              <ul class="queue-list">
+                <li class="queue-row selected">
+                  <div class="queue-title"><strong>Reject duplicate customer rows</strong><span>REQ-104 · Data integrity</span></div>
+                  <span class="owner">Linh / Backend</span><span class="badge badge-green">Verified</span><button class="row-action" type="button" aria-label="Open requirement REQ-104">→</button>
+                </li>
+                <li class="queue-row">
+                  <div class="queue-title"><strong>Map invalid columns to source</strong><span>REQ-105 · Error recovery</span></div>
+                  <span class="owner">Huy / Frontend</span><span class="badge badge-green">Verified</span><button class="row-action" type="button" aria-label="Open requirement REQ-105">→</button>
+                </li>
+                <li class="queue-row">
+                  <div class="queue-title"><strong>Keep progress clear at 10k rows</strong><span>REQ-106 · Feedback</span></div>
+                  <span class="owner">An / QA</span><span class="badge badge-amber">Needs evidence</span><button class="row-action" type="button" aria-label="Open requirement REQ-106">→</button>
+                </li>
+                <li class="queue-row">
+                  <div class="queue-title"><strong>Restore focus after error review</strong><span>REQ-107 · Accessibility</span></div>
+                  <span class="owner">Huy / Frontend</span><span class="badge badge-green">Verified</span><button class="row-action" type="button" aria-label="Open requirement REQ-107">→</button>
+                </li>
+              </ul>
+              <article class="detail" aria-labelledby="detail-title">
+                <div class="detail-label">Selected requirement</div>
+                <h3 id="detail-title">REQ-104 · Duplicate handling</h3>
+                <p>When the same normalized email appears more than once, no record is written until the operator chooses which row to keep.</p>
+                <ul class="acceptance-list">
+                  <li><span class="check" aria-hidden="true">✓</span><span>Conflict rows remain grouped after sorting and filtering.</span></li>
+                  <li><span class="check" aria-hidden="true">✓</span><span>The source row number is visible in the review and export.</span></li>
+                  <li><span class="check" aria-hidden="true">✓</span><span>Automated test: <code>duplicate_email_requires_choice</code>.</span></li>
+                </ul>
+              </article>
+            </section>
+
+            <aside class="panel decision-panel" id="decision" aria-labelledby="decision-title">
+              <div class="panel-heading"><h2 id="decision-title">Release decision</h2><span class="badge badge-amber">Conditional</span></div>
+              <div class="decision-body">
+                <div>
+                  <div class="decision-score"><strong>4</strong><span>/ 5 gates</span></div>
+                  <p class="decision-copy">One missing performance artifact prevents a clean ship decision.</p>
+                  <div class="progress" aria-label="Four of five release gates complete"><span></span></div>
+                </div>
+                <ul class="gate-list">
+                  <li><span class="gate-icon" aria-hidden="true">✓</span><div><strong>Functional path</strong><span>12 acceptance checks passed</span></div></li>
+                  <li><span class="gate-icon" aria-hidden="true">✓</span><div><strong>Failure recovery</strong><span>Retry and export verified</span></div></li>
+                  <li><span class="gate-icon" aria-hidden="true">✓</span><div><strong>Accessibility</strong><span>Keyboard path reviewed</span></div></li>
+                  <li><span class="gate-icon" aria-hidden="true">✓</span><div><strong>Rollback</strong><span>Owner and trigger recorded</span></div></li>
+                  <li><span class="gate-icon pending" aria-hidden="true">!</span><div><strong>Performance evidence</strong><span>10k-row capture missing</span></div></li>
+                </ul>
+                <button class="primary-button" type="button">Request final evidence</button>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="state-view" data-state-view="loading" aria-label="Loading release review state" hidden>
+          <div class="skeleton-shell" aria-busy="true" aria-label="Loading release review">
+            <div class="skeleton skeleton-head"></div>
+            <div class="skeleton skeleton-strip"></div>
+            <div class="skeleton-grid"><div class="skeleton skeleton-tall"></div><div class="skeleton skeleton-tall"></div></div>
+          </div>
+        </section>
+
+        <section class="state-view" data-state-view="empty" aria-label="Empty release review state" hidden>
+          <div class="system-state">
+            <div class="system-state-inner">
+              <div class="state-symbol" aria-hidden="true">＋</div>
+              <h2>No requirements yet</h2>
+              <p>Start with one observable outcome. Add its owner, acceptance evidence, and failure boundary before the release grows.</p>
+              <button class="secondary-button" type="button">Add first requirement</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="state-view" data-state-view="error" aria-label="Error release review state" hidden>
+          <div class="system-state error-state" role="alert">
+            <div class="system-state-inner">
+              <div class="state-symbol" aria-hidden="true">!</div>
+              <h2>The evidence service did not respond</h2>
+              <p>Your review is still saved locally. Retry the evidence request or continue with the last synchronized snapshot from 14:32 ICT.</p>
+              <button class="primary-button" type="button" data-retry>Retry evidence request</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const controls = [...document.querySelectorAll("[data-state-control]")];
+      const views = [...document.querySelectorAll("[data-state-view]")];
+      const announcement = document.getElementById("state-announcement");
+
+      function showState(nextState) {
+        controls.forEach((control) => {
+          control.setAttribute("aria-pressed", String(control.dataset.stateControl === nextState));
+        });
+        views.forEach((view) => {
+          view.hidden = view.dataset.stateView !== nextState;
+        });
+        announcement.textContent = `${nextState.charAt(0).toUpperCase()}${nextState.slice(1)} state shown.`;
+        document.documentElement.dataset.state = nextState;
+      }
+
+      controls.forEach((control) => {
+        control.addEventListener("click", () => showState(control.dataset.stateControl));
+      });
+
+      document.querySelector("[data-retry]").addEventListener("click", () => showState("loading"));
+
+      const requestedState = new URLSearchParams(window.location.search).get("state");
+      if (["ready", "loading", "empty", "error"].includes(requestedState)) {
+        showState(requestedState);
+      }
+    })();
+  </script>
+</body>
+</html>
