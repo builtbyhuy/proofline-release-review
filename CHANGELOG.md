@@ -1,5 +1,10 @@
 # Changelog
 
+> **Release decision:** no tag or GitHub release has been created. `0.2.0` is an
+> unreleased draft-branch checkpoint. Tagging waits for PR review/merge, a fresh
+> verification run, and confirmation that the public interface still exposes
+> the fictional-data and blocked-gate boundaries.
+
 ## 0.2.0 — 2026-07-22
 
 - Added an executable acceptance evaluator and fictional five-gate release

@@ -21,6 +21,18 @@ into one vague “ready” label. Proofline keeps the missing gate visible. The
 fixture release has four evidenced gates and one blocked performance gate, so
 the executable decision remains `BLOCKED`.
 
+## Reviewer and relevant use
+
+The intended reviewer is an engineering manager, delivery owner, release lead,
+or agency technical reviewer who needs one bounded release decision tied to
+inspectable evidence. This proof is relevant when acceptance criteria exist but
+ownership, evidence sufficiency, failure precedence, or the final go/no-go state
+is still ambiguous.
+
+The next action is to provide one fictional or sanitized release gate and its
+acceptance evidence for a bounded review. Proofline should not receive production
+credentials or be treated as a deployment controller.
+
 ## What is implemented
 
 - A responsive dependency-free interface with ready, loading, empty, and
