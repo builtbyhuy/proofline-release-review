@@ -871,7 +871,10 @@
         control.addEventListener("click", () => showState(control.dataset.stateControl));
       });
 
-      document.querySelector("[data-retry]").addEventListener("click", () => showState("loading"));
+      document.querySelector("[data-retry]").addEventListener("click", () => {
+        showState("loading");
+        controls.find((control) => control.dataset.stateControl === "loading").focus();
+      });
 
       const requestedState = new URLSearchParams(window.location.search).get("state");
       if (["ready", "loading", "empty", "error"].includes(requestedState)) {
