@@ -1,0 +1,43 @@
+{
+  "release_id": "release-08-customer-import",
+  "expected_state": "BLOCKED",
+  "truth_boundary": "Fictional independent sample data; not a client or production release.",
+  "gates": [
+    {
+      "id": "functional",
+      "label": "Functional path",
+      "required": true,
+      "status": "PASS",
+      "evidence": "tests/e2e/release-review.spec.js"
+    },
+    {
+      "id": "failure-recovery",
+      "label": "Failure recovery",
+      "required": true,
+      "status": "PASS",
+      "evidence": "tests/e2e/release-review.spec.js"
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility",
+      "required": true,
+      "status": "PASS",
+      "evidence": "tests/e2e/release-review.spec.js#error-retry-moves-focus-to-a-visible-control"
+    },
+    {
+      "id": "rollback",
+      "label": "Rollback",
+      "required": true,
+      "status": "PASS",
+      "evidence": "docs/ACCEPTANCE_MODEL.md#rollback-boundary"
+    },
+    {
+      "id": "performance",
+      "label": "Performance evidence",
+      "required": true,
+      "status": "BLOCKED",
+      "evidence": "",
+      "reason": "10k-row capture missing"
+    }
+  ]
+}
