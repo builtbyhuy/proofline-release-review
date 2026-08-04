@@ -11,7 +11,7 @@ produce an explicit `PASS`, `FAIL`, `BLOCKED`, or `NOT_APPLICABLE` decision.
 [Live interface](https://builtbyhuy.github.io/proofline-release-review/) ·
 [Architecture](docs/ARCHITECTURE.md) ·
 [Acceptance model](docs/ACCEPTANCE_MODEL.md) ·
-[Verification](docs/VERIFICATION.md) ·
+[Verification and handoff](docs/VERIFICATION.md) ·
 [Demo script](docs/DEMO_SCRIPT.md)
 
 ## Problem
@@ -92,7 +92,8 @@ flowchart LR
 ```
 
 See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) and
-[`docs/VERIFICATION.md`](docs/VERIFICATION.md).
+[`docs/VERIFICATION.md`](docs/VERIFICATION.md) for an immutable reviewer path,
+the expected decision, handoff contents, owner decisions, and rollback boundary.
 
 ## Acceptance contract
 

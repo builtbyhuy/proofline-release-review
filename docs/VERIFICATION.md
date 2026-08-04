@@ -41,3 +41,42 @@ the exact checked-in file rather than producing a separate unreviewed bundle.
 
 No `.env.example` is included because the implementation reads no environment
 variable and has no backend credential boundary.
+
+## Reviewer reproduction and handoff
+
+Reproduce the published proof from the immutable `proof-review-2026-08-04` tag rather than
+trusting screenshots or a mutable working tree:
+
+```bash
+git clone https://github.com/builtbyhuy/proofline-release-review.git
+cd proofline-release-review
+git checkout proof-review-2026-08-04
+npm ci
+npx playwright install chromium
+npm run verify
+```
+
+The expected result is a green source, unit, release-state, and browser test
+run. The release-state command must report both expected and observed
+`BLOCKED`: the fictional performance gate deliberately has no evidence. A
+`PASS` result for the committed fixture is a regression, not a success.
+
+The handoff surface is deliberately small:
+
+- `index.html` is the deployable static interface.
+- `acceptance.js` is the executable decision boundary.
+- `data/release-08.json` is the fictional input fixture.
+- `scripts/verify-release.js` produces the inspectable decision report.
+- `tests/` and `.github/workflows/ci.yml` bind the documented contract to CI.
+
+Before adapting this proof to real delivery, the receiving owner must decide
+who owns each gate, which system supplies evidence, whether evidence can expire,
+who is allowed to override a decision, and what audit retention is required.
+Authentication, persistence, imports, role enforcement, production telemetry,
+and deployment control are intentionally absent; they are product decisions,
+not hidden capabilities.
+
+Rollback is a static-file rollback: redeploy the preceding known-good commit or
+tag. There is no database, migration, secret, queue, or remote side effect to
+reverse. This repository is a reviewable work sample, not a production release
+controller.
