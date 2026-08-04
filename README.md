@@ -8,7 +8,7 @@ A self-contained release-review interface plus an executable acceptance model.
 It shows how requirements, evidence, failure states, and unresolved gates can
 produce an explicit `PASS`, `FAIL`, `BLOCKED`, or `NOT_APPLICABLE` decision.
 
-[Live interface](https://hohuyblon-stack.github.io/proofline-release-review/) ·
+[Live interface](https://builtbyhuy.github.io/proofline-release-review/) ·
 [Architecture](docs/ARCHITECTURE.md) ·
 [Acceptance model](docs/ACCEPTANCE_MODEL.md) ·
 [Verification](docs/VERIFICATION.md) ·
