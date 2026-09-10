@@ -1,5 +1,7 @@
 # Debugging case study: retry hid the focused control
 
+> **Provenance:** Independent technical sample with fictional data. AI assistance was used for the implementation, debugging, regression tests, and this write-up. This is not a report of research with disabled users or a human accessibility audit.
+
 ## Reproduction
 
 1. Open `?state=error`.
