@@ -22,12 +22,20 @@
   <aside class="notice"><strong>Chỉ là dấu hiệu cần kiểm tra.</strong> Hai trang có thể dùng mã theo quy ước riêng. Chuyên viên phụ tùng cần xác minh nguồn mã trước mọi chỉnh sửa.</aside>
 
   <section aria-labelledby="result-heading" class="results">
-    <div class="section-heading"><div><p class="eyebrow">01 / KẾT QUẢ</p><h2 id="result-heading">Danh sách cần xem lại</h2></div><button id="export" class="secondary" type="button">Tải kết quả CSV</button></div>
+    <div class="section-heading"><div><p class="eyebrow">01 / KẾT QUẢ</p><h2 id="result-heading">Danh sách cần xem lại</h2></div><button id="export" class="secondary" type="button">Xuất CSV / xem trước</button></div>
     <div class="metrics" aria-label="Tổng quan kết quả"><div><strong id="row-count">0</strong><span>dòng dữ liệu</span></div><div class="metric-accent"><strong id="review-count">0</strong><span>nhóm cùng mã, khác tên</span></div><div><strong id="missing-count">0</strong><span>dòng thiếu tên hoặc mã</span></div></div>
     <p id="status" class="status" role="status" aria-live="polite"></p>
     <p class="small">Trong mẫu công khai, cả hai trang đều ghi <code>35100-04200 / 3510004200</code>. Mỗi dòng chọn một dạng đã xuất hiện trên nguồn để minh họa chuẩn hóa; không phải hai mã khác nhau.</p>
     <div id="review-groups"></div>
     <details class="all-rows"><summary>Xem toàn bộ dòng và phân loại</summary><div class="table-scroll"><table><caption class="sr-only">Tất cả dòng đã rà soát</caption><thead><tr><th scope="col">ID nội bộ</th><th scope="col">Tên</th><th scope="col">Mã đầu vào</th><th scope="col">Mã chuẩn hóa</th><th scope="col">Phân loại</th></tr></thead><tbody id="all-rows-body"></tbody></table></div></details>
+    <details id="csv-preview" class="all-rows" hidden>
+      <summary>Bản CSV đã chuẩn bị để sao chép</summary>
+      <label class="input-label" for="csv-output">Nội dung xuất từ kết quả đang hiển thị</label>
+      <textarea id="csv-output" rows="7" readonly spellcheck="false" aria-describedby="csv-output-help"></textarea>
+      <p id="csv-output-help" class="small">Nếu không thấy tệp tải xuống, chọn nội dung rồi sao chép vào tệp văn bản UTF-8 có đuôi .csv. Đây là cùng nội dung đã được bảo vệ công thức như bản tải xuống. Trang không thể xác nhận tệp đã được lưu trên thiết bị.</p>
+      <button id="select-csv" class="secondary" type="button">Chọn toàn bộ CSV để sao chép</button>
+      <p id="copy-status" class="small" role="status" aria-live="polite"></p>
+    </details>
   </section>
 
   <section class="import-section" aria-labelledby="import-heading">

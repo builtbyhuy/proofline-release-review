@@ -11,3 +11,6 @@ Both public product pages were independently opened on 2026-09-30. Each publishe
 Browser-render limitation: local Playwright was present but no Chromium executable was installed. An isolated official browser download returned an invalid/truncated archive and failed. No successful browser UI test or screenshot is claimed by this record. Root agent will perform browser UI QA separately before publication.
 
 No website publication, messages, form submissions, account connection or modifications to the prospect's website were made.
+
+EXPORT FALLBACK PATCH - 2026-09-30
+After the root agent's independent browser review, added a read-only, expandable CSV preview and a select-all/manual-copy fallback. The preview and download reuse the same exportCsv output, including formula neutralization. The status now reports preparation and a download request, not a proven saved file. A successful new analysis or reset clears the prior preview. This patch was authored locally only; publication and browser review of this update are left to the root agent.

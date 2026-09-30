@@ -5,7 +5,8 @@ MỞ VÀ DÙNG
 1. Mở index.html trong trình duyệt. Không cần cài thư viện, tài khoản hay khóa API.
 2. Hai dòng nguồn công khai được nạp sẵn. Công cụ chỉ gắn cờ cùng mã sau chuẩn hóa nhưng khác tên.
 3. Dán CSV/TSV hoặc chọn tệp tối đa 2 MB, 2.000 dòng; bấm Rà soát dữ liệu.
-4. Bấm Tải kết quả CSV để nhận toàn bộ dòng, mã gốc, mã chuẩn hóa và phân loại.
+4. Bấm Xuất CSV / xem trước để chuẩn bị toàn bộ dòng, mã gốc, mã chuẩn hóa và phân loại. Trình duyệt được yêu cầu tải xuống, đồng thời bản CSV chỉ đọc được mở ngay trên trang.
+   Nếu không thấy tệp, bấm Chọn toàn bộ CSV để sao chép rồi dùng Ctrl+C / Command+C hoặc lệnh Sao chép trên điện thoại. Dán vào tệp văn bản UTF-8 có đuôi .csv. Trang không thể xác nhận tệp đã được lưu.
 5. Đối chiếu bằng chuyên môn phụ tùng và tài liệu mã trước khi sửa danh mục. Không tự sửa theo kết quả này.
 
 Nếu cần chạy qua HTTP cục bộ, tại thư mục này dùng:
@@ -41,7 +42,7 @@ RIÊNG TƯ VÀ XỬ LÝ AN TOÀN
 Không API ngoài, analytics, cookie, localStorage hoặc gửi form. Nội dung nhập chỉ nằm trong bộ nhớ tab. Chỉ khi người dùng bấm mở nguồn thì trình duyệt mới mở website tương ứng; tùy trình duyệt và website, trang nguồn có thể có theo dõi riêng.
 Tên/mã hiển thị bằng textContent, không chèn HTML từ dữ liệu. Chỉ tạo liên kết nguồn HTTP/HTTPS không chứa thông tin đăng nhập.
 CSV xuất có BOM UTF-8. Ô bắt đầu bằng ký tự có thể tạo công thức bảng tính được thêm dấu nháy đơn để giảm nguy cơ CSV formula injection; đây là biến đổi bảo vệ khi xuất. Nếu nhập lại CSV đã xuất, dấu nháy bảo vệ vẫn là dữ liệu, không tự xóa.
-Nếu nhập lỗi, thông báo nói rõ kết quả đang hiển thị vẫn là lần rà soát thành công trước đó. Tệp xuất luôn dựa trên kết quả đang hiển thị, không dựa trên nội dung chưa rà soát.
+Nếu nhập lỗi, thông báo nói rõ kết quả đang hiển thị vẫn là lần rà soát thành công trước đó. Tệp xuất và bản sao chép dùng đúng một chuỗi CSV từ kết quả đang hiển thị, không dựa trên nội dung chưa rà soát. Bản xem trước được xóa khi có kết quả rà soát mới hoặc khi khôi phục mẫu, để tránh sao chép nhầm kết quả cũ.
 
 KIỂM THỬ
 Cần Node.js 18 trở lên để chạy kiểm thử (trình duyệt không cần Node):

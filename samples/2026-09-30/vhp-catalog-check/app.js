@@ -11,6 +11,10 @@
   }
   function render(result, origin) {
     current = result;
+    $('csv-preview').hidden = true;
+    $('csv-preview').open = false;
+    $('csv-output').value = '';
+    $('copy-status').textContent = '';
     $('row-count').textContent = result.rows.length;
     $('review-count').textContent = result.review_groups.length;
     $('missing-count').textContent = result.incomplete_rows.length;
@@ -81,13 +85,30 @@
   });
   $('export').addEventListener('click', () => {
     if (!current || !current.rows.length) return;
-    const blob = new Blob([C.exportCsv(current)], { type: 'text/csv;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = element('a');
-    a.href = url; a.download = 'ket-qua-ra-soat-ma.csv';
-    document.body.append(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    $('status').textContent += ' Đã tạo tệp CSV từ kết quả đang hiển thị.';
+    const csv = C.exportCsv(current);
+    $('csv-output').value = csv;
+    $('csv-preview').hidden = false;
+    $('csv-preview').open = true;
+    $('copy-status').textContent = '';
+    let url;
+    try {
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+      url = URL.createObjectURL(blob);
+      const a = element('a');
+      a.href = url; a.download = 'ket-qua-ra-soat-ma.csv';
+      document.body.append(a); a.click(); a.remove();
+      $('status').textContent = 'Đã chuẩn bị CSV từ kết quả đang hiển thị và yêu cầu trình duyệt tải xuống. Nếu chưa thấy tệp, có thể sao chép bản CSV bên dưới.';
+    } catch (_) {
+      $('status').textContent = 'Đã chuẩn bị CSV từ kết quả đang hiển thị. Không yêu cầu được lượt tải xuống; hãy sao chép bản CSV bên dưới.';
+    } finally {
+      if (url) setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+  });
+  $('select-csv').addEventListener('click', () => {
+    $('csv-output').focus();
+    $('csv-output').select();
+    $('csv-output').setSelectionRange(0, $('csv-output').value.length);
+    $('copy-status').textContent = 'Đã chọn toàn bộ CSV. Nhấn Ctrl+C (hoặc Command+C trên Mac); trên điện thoại, dùng lệnh Sao chép của thiết bị.';
   });
   reset();
 })();
