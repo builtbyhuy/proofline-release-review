@@ -14,3 +14,6 @@ No website publication, messages, form submissions, account connection or modifi
 
 EXPORT FALLBACK PATCH - 2026-09-30
 After the root agent's independent browser review, added a read-only, expandable CSV preview and a select-all/manual-copy fallback. The preview and download reuse the same exportCsv output, including formula neutralization. The status now reports preparation and a download request, not a proven saved file. A successful new analysis or reset clears the prior preview. This patch was authored locally only; publication and browser review of this update are left to the root agent.
+
+ROOT BROWSER FOLLOW-UP - 2026-09-30
+Published sample and export fallback verified in cloud Chrome. The saved CSV arrived after the event wait timeout: 455 bytes; SHA-256 274ecdc95a7897697ee30afaba164bb36e7d2cc736f83d229603f6e42f1a8cc3. Its two source records and seven export fields were verified. The public fallback displays both rows and its Select All selects 0..417 of 417 UTF-16 code units. See ../BROWSER-REVIEW.md for focused UI checks and remaining limits. Earlier authoring-only notes above describe an earlier stage, not the final publication status.

@@ -1,17 +1,17 @@
 
 vhp-catalog-check
-✔ normalizes published hyphenated and compact code without using internal IDs (1.007026ms)
-✔ two public rows produce one review group with separate IDs and preserved raw codes (1.043901ms)
-✔ identical names under a shared code are not different-name conflicts, even with different IDs (0.188124ms)
-✔ same internal ID does not group different codes (0.315695ms)
-✔ missing names and codes remain explicit incomplete rows (0.137407ms)
-✔ CSV parser handles BOM, quoted commas, quotes and multiline cells (0.432951ms)
-✔ TSV paste and optional columns work (0.163036ms)
-✔ malformed or ambiguous CSV is rejected with useful errors (0.5115ms)
-✔ export preserves separate rows and uses UTF-8 BOM for Vietnamese spreadsheets (0.867335ms)
-✔ CSV export neutralizes formula-like cells including leading whitespace (0.450558ms)
-✔ untrusted names remain plain strings and dangerous source links are rejected (0.282315ms)
-✔ limits prevent an accidental huge import and sample copy is independently analyzable (2.507094ms)
+✔ normalizes published hyphenated and compact code without using internal IDs (2.640583ms)
+✔ two public rows produce one review group with separate IDs and preserved raw codes (1.459276ms)
+✔ identical names under a shared code are not different-name conflicts, even with different IDs (0.239009ms)
+✔ same internal ID does not group different codes (0.217527ms)
+✔ missing names and codes remain explicit incomplete rows (0.162184ms)
+✔ CSV parser handles BOM, quoted commas, quotes and multiline cells (2.21989ms)
+✔ TSV paste and optional columns work (0.281173ms)
+✔ malformed or ambiguous CSV is rejected with useful errors (1.854581ms)
+✔ export preserves separate rows and uses UTF-8 BOM for Vietnamese spreadsheets (0.762227ms)
+✔ CSV export neutralizes formula-like cells including leading whitespace (0.287182ms)
+✔ untrusted names remain plain strings and dangerous source links are rejected (0.282085ms)
+✔ limits prevent an accidental huge import and sample copy is independently analyzable (3.796964ms)
 ℹ tests 12
 ℹ suites 0
 ℹ pass 12
@@ -19,7 +19,7 @@ vhp-catalog-check
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 15.693402
+ℹ duration_ms 24.849101
 
 gotripod-form-qa
 GoTripod: validation, preservation, retry and literal-text checks passed.
@@ -66,18 +66,18 @@ PASS only published selector values allowed
 10 tests passed for Master Technology Labs
 
 facility-link-review
-✔ six source observations match exact public destination list (1.874261ms)
-✔ manifest.json and self-contained HTML retain the same observations (0.37166ms)
-✔ published fixture passes only local checks, never implies live testing (0.52429ms)
-✔ practice injects exactly three known review flags (0.306662ms)
-✔ practice and edited clones cannot mutate the published manifest (0.176335ms)
-✔ unsafe schemes, credentials, local hosts and obfuscated separators rejected (0.287683ms)
-✔ absolute public HTTPS URLs accepted without network and fragments normalized (0.223487ms)
-✔ duplicates normalized across fragment/default port, paths preserved (0.156926ms)
-✔ missing or whitespace labels flagged without overwriting original record (0.313111ms)
-✔ unknown mode rejected rather than silently represented as source data (0.341444ms)
-✔ export is valid JSON with source date, limitations and synthetic provenance (0.251329ms)
-✔ static page contains no remote assets, form submissions or DOM HTML injection (0.535366ms)
+✔ six source observations match exact public destination list (1.816733ms)
+✔ manifest.json and self-contained HTML retain the same observations (0.332581ms)
+✔ published fixture passes only local checks, never implies live testing (0.435515ms)
+✔ practice injects exactly three known review flags (0.380192ms)
+✔ practice and edited clones cannot mutate the published manifest (0.277908ms)
+✔ unsafe schemes, credentials, local hosts and obfuscated separators rejected (0.473603ms)
+✔ absolute public HTTPS URLs accepted without network and fragments normalized (0.138118ms)
+✔ duplicates normalized across fragment/default port, paths preserved (0.302966ms)
+✔ missing or whitespace labels flagged without overwriting original record (0.191829ms)
+✔ unknown mode rejected rather than silently represented as source data (3.702161ms)
+✔ export is valid JSON with source date, limitations and synthetic provenance (0.318068ms)
+✔ static page contains no remote assets, form submissions or DOM HTML injection (0.445039ms)
 ℹ tests 12
 ℹ suites 0
 ℹ pass 12
@@ -85,9 +85,30 @@ facility-link-review
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 15.395685
+ℹ duration_ms 17.584881
 
 lmc-brief-composer
 LMC: boundary, Unicode counting, preservation and literal export checks passed.
 
-Sample suites: 8/8 passed.
+bms-parsing-review
+✔ all three synthetic records begin pending, never auto-accepted (1.100236ms)
+✔ missing, zero, negative and fractional quantities cannot be accepted (0.728146ms)
+✔ missing data may be marked for revision without fabrication (0.291688ms)
+✔ both decision routes require a meaningful review note (0.179139ms)
+✔ acceptance requires an explicit source-review acknowledgement (0.150146ms)
+✔ unit correction and human acceptance preserve original draft and raw source (0.246781ms)
+✔ editing an accepted field revokes the decision and acknowledgement (0.158849ms)
+✔ ambiguous date can stay explicitly unknown; special characters survive JSON (0.187852ms)
+✔ exports include pending records and cannot mutate source state (1.09701ms)
+✔ reset fixtures are isolated and unknown records/fields are rejected (0.373282ms)
+✔ runtime has no network, automatic submission or unsafe HTML insertion API (0.723839ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13.058059
+
+Sample suites: 9/9 passed.

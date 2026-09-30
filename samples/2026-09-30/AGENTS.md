@@ -1,6 +1,6 @@
 # Independent work-sample instructions
 
-These eight static tools demonstrate bounded frontend and data-QA work.
+These nine static tools demonstrate bounded frontend and data-QA work.
 They were built with AI assistance from dated public observations.
 They are not commissioned client projects or deployed fixes on company systems.
 All sample customer/meeting inputs are synthetic unless explicitly sourced.

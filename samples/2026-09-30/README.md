@@ -1,6 +1,6 @@
 # Small tools, clear handoffs
 
-Eight independent, AI-assisted work samples by Hồ Khắc Huy, prepared on 30 September 2026. These are original prototypes, not commissioned client work, endorsements or evidence of paid outcomes.
+Nine independent, AI-assisted work samples by Hồ Khắc Huy, prepared on 30 September 2026. These are original prototypes, not commissioned client work, endorsements or evidence of paid outcomes.
 
 Each sample starts with a dated public observation. Source facts and synthetic test cases are identified separately. Public business pages were generally undated; the observation date is not their publication date. No private customer records, analytics or inboxes were inspected.
 
@@ -18,6 +18,7 @@ Open `index.html` for the directory, or open a sample's own `index.html`. All ru
 | `mastertech-brief` | Export enquiry details as text/JSON with explicit unknowns | Public fields; no real CRM connection |
 | `facility-link-review` | Review six published destinations and deliberately injected practice faults | No assertion that live links are broken or inaccessible |
 | `lmc-brief-composer` | Retain a full brief while editing a 180-character opening | Published counter; demo counting rule is explicit and live enforcement untested |
+| `bms-parsing-review` | Preserve raw enquiry text, edit prepared fields, explicitly accept/revise, export decisions | Synthetic data and schema; motivated by a September 2026 developer invitation, not a diagnosis of a private app |
 
 ## Verify
 
@@ -27,7 +28,7 @@ Use Node.js 20 or later:
 node run-tests.cjs
 ```
 
-The runner invokes eight dependency-free logic suites. Per-sample README and test files describe their coverage. Logic checks do not establish browser appearance, actual downloads, clipboard permissions or production behavior. Browser checks and any limitations are recorded separately; do not turn an unrun check into a pass.
+The runner invokes nine dependency-free logic suites. Per-sample README and test files describe their coverage. Logic checks do not establish browser appearance, actual downloads, clipboard permissions or production behavior. Browser checks and any limitations are recorded separately; do not turn an unrun check into a pass.
 
 ## Use and limitations
 

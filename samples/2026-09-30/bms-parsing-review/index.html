@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Independent AI-assisted frontend work sample: human review of synthetic parsed enquiries.">
+  <title>Parsing review — independent frontend sample</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="review-core.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="eyebrow">INDEPENDENT FRONTEND WORK SAMPLE · SYNTHETIC DATA</div>
+      <h1>Keep the source.<br><span>Make the decision explicit.</span></h1>
+      <p class="intro">A small review step between a prepared extraction and a human-approved record. No AI service is running: these drafts are fixed examples, including deliberate mistakes.</p>
+      <div class="header-row"><span class="pill">Local processing · no account</span><button id="reset" class="quiet" type="button">Reset all sample records</button></div>
+    </header>
+
+    <section class="workspace" aria-label="Parsed enquiry review">
+      <nav class="queue" aria-label="Synthetic record queue"><div class="section-label">THREE REVIEW CASES</div><div id="queue"></div><p id="progress" class="small" aria-live="polite"></p></nav>
+      <article class="review">
+        <div class="record-top"><h2 id="record-title"></h2><span id="decision-status" class="pill"></span></div>
+        <div class="columns">
+          <section class="source-pane" aria-labelledby="source-heading">
+            <h3 id="source-heading">1. Read the raw source</h3>
+            <p id="source-ref" class="mono small"></p>
+            <pre id="raw-source"></pre>
+            <h4>Review prompts</h4><ul id="flags"></ul>
+            <p class="small">This source is read-only. Missing facts must stay unknown or go back for clarification.</p>
+          </section>
+          <section aria-labelledby="fields-heading">
+            <h3 id="fields-heading">2. Check the prepared fields</h3>
+            <div class="field"><label for="item">Item description</label><input id="item" autocomplete="off"></div>
+            <div class="field-row">
+              <div class="field"><label for="quantity">Quantity</label><input id="quantity" type="number" min="1" step="1" placeholder="Not supplied" aria-describedby="quantity-help"><small id="quantity-help">Missing is not zero.</small></div>
+              <div class="field"><label for="unit">Requested unit</label><select id="unit"><option value="">Unknown</option><option value="pieces">Pieces</option><option value="boxes">Boxes</option></select></div>
+            </div>
+            <div class="field"><label for="requiredBy">Requested date <span class="muted">(optional)</span></label><input id="requiredBy" autocomplete="off" placeholder="Unknown — not confirmed"><small>Keep the original expression or clear it. Never infer a date format or year.</small></div>
+            <div id="validation" class="validation" aria-live="polite"></div>
+          </section>
+        </div>
+        <section class="decision" aria-labelledby="decision-heading">
+          <h3 id="decision-heading">3. Record a human decision</h3>
+          <label for="review-note">Review note <span class="muted">(required for either decision)</span></label>
+          <textarea id="review-note" rows="3" placeholder="Explain what you checked, changed, or still need to clarify."></textarea>
+          <label class="check"><input id="source-checked" type="checkbox"><span>I checked these fields against the source and considered the review prompts.</span></label>
+          <div class="actions"><button id="accept" type="button">Accept reviewed record</button><button id="revise" type="button" class="secondary">Mark for revision</button></div>
+          <p class="small">Accept records only your human decision. It does not certify technical suitability. Editing a field clears the previous decision and source-check acknowledgement.</p>
+          <p id="status" role="status" aria-live="polite"></p>
+        </section>
+      </article>
+    </section>
+
+    <section class="export" aria-labelledby="export-heading">
+      <div><h2 id="export-heading">Review handoff</h2><p>JSON retains raw text, source references, original drafts, edits, unresolved checks and every decision—including pending records.</p></div>
+      <div class="actions"><button id="prepare-json" type="button" class="secondary">Prepare JSON</button><button id="copy-json" type="button" class="quiet">Copy JSON</button></div>
+      <label for="json-output" class="small">Current export preview (read-only; prepare again after making changes)</label>
+      <textarea id="json-output" readonly rows="10" spellcheck="false" aria-describedby="export-status"></textarea><p id="export-status" role="status" aria-live="polite"></p>
+    </section>
+    <footer>
+      <p>Original, AI-assisted work sample by Hồ Khắc Huy. Prepared 30 September 2026 for discussion of a bounded paid frontend component. Not commissioned or endorsed by BMS Design; not a claim of paid-client, full-stack or production ownership.</p>
+      <p>Context: <a href="https://www.bmsdesignltd.co.uk/careers" target="_blank" rel="noopener noreferrer">BMS Design’s September 2026 developer invitation</a> mentions content review and parsing. This independent example makes no claim about its private product or existing workflow. No company assets or private records are used. Data stays in memory and resets on reload.</p>
+    </footer>
+  </main>
+</body>
+</html>

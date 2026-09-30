@@ -8,7 +8,8 @@ const checks = [
   ['mother-tongue-inbox', 'tests.cjs'],
   ['mastertech-brief', 'tests.cjs'],
   ['facility-link-review', 'tests.mjs'],
-  ['lmc-brief-composer', 'test.cjs']
+  ['lmc-brief-composer', 'test.cjs'],
+  ['bms-parsing-review', 'tests.mjs']
 ];
 let failures = 0;
 for (const [folder, script] of checks) {
