@@ -53,6 +53,21 @@
 
     button { font: inherit; }
 
+    .portfolio-strip {
+      width: min(1440px, calc(100% - 48px));
+      margin: 18px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 20px;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+    .portfolio-strip a { color: var(--navy); text-underline-offset: 3px; }
+    .portfolio-strip strong { color: var(--ink); }
+    .demo-help { margin: 8px 0 0; max-width: 340px; font-size: 12px; color: var(--ink-soft); }
+    button:disabled { opacity: .65; cursor: default; }
+
     button:focus-visible,
     a:focus-visible {
       outline: 3px solid var(--focus);
@@ -705,6 +720,11 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to release review</a>
+  <nav class="portfolio-strip" aria-label="Huy's portfolio">
+    <span><strong>Hồ Khắc Huy</strong> · Independent frontend sample</span>
+    <a href="samples/2026-09-30/">More working samples</a>
+    <a href="mailto:hohuyblon@gmail.com?subject=One%20web%20component">Discuss one component</a>
+  </nav>
   <div class="app-shell">
     <aside class="sidebar" aria-label="Primary navigation">
       <a class="brand" href="#main-content" aria-label="Proofline home">
@@ -750,6 +770,8 @@
               <button class="state-button" type="button" data-state-control="empty" aria-pressed="false">Empty</button>
               <button class="state-button" type="button" data-state-control="error" aria-pressed="false">Error</button>
             </div>
+            <p class="demo-help">Try Error, then Retry. Focus moves to Loading.</p>
+            <p class="demo-help" id="visual-control-note">Release-action buttons are visual examples and disabled. This demo does not save data.</p>
           </div>
         </div>
 
@@ -769,19 +791,19 @@
               <ul class="queue-list">
                 <li class="queue-row selected">
                   <div class="queue-title"><strong>Reject duplicate customer rows</strong><span>REQ-104 · Data integrity</span></div>
-                  <span class="owner">Linh / Backend</span><span class="badge badge-green">Verified</span><button class="row-action" type="button" aria-label="Open requirement REQ-104">→</button>
+                  <span class="owner">Linh / Backend</span><span class="badge badge-green">Verified</span><button class="row-action" type="button" disabled aria-describedby="visual-control-note" aria-label="Open requirement REQ-104">→</button>
                 </li>
                 <li class="queue-row">
                   <div class="queue-title"><strong>Map invalid columns to source</strong><span>REQ-105 · Error recovery</span></div>
-                  <span class="owner">Huy / Frontend</span><span class="badge badge-green">Verified</span><button class="row-action" type="button" aria-label="Open requirement REQ-105">→</button>
+                  <span class="owner">Huy / Frontend</span><span class="badge badge-green">Verified</span><button class="row-action" type="button" disabled aria-describedby="visual-control-note" aria-label="Open requirement REQ-105">→</button>
                 </li>
                 <li class="queue-row">
                   <div class="queue-title"><strong>Keep progress clear at 10k rows</strong><span>REQ-106 · Feedback</span></div>
-                  <span class="owner">An / QA</span><span class="badge badge-amber">Needs evidence</span><button class="row-action" type="button" aria-label="Open requirement REQ-106">→</button>
+                  <span class="owner">An / QA</span><span class="badge badge-amber">Needs evidence</span><button class="row-action" type="button" disabled aria-describedby="visual-control-note" aria-label="Open requirement REQ-106">→</button>
                 </li>
                 <li class="queue-row">
                   <div class="queue-title"><strong>Restore focus after error review</strong><span>REQ-107 · Accessibility</span></div>
-                  <span class="owner">Huy / Frontend</span><span class="badge badge-green">Verified</span><button class="row-action" type="button" aria-label="Open requirement REQ-107">→</button>
+                  <span class="owner">Huy / Frontend</span><span class="badge badge-green">Verified</span><button class="row-action" type="button" disabled aria-describedby="visual-control-note" aria-label="Open requirement REQ-107">→</button>
                 </li>
               </ul>
               <article class="detail" aria-labelledby="detail-title">
@@ -811,7 +833,7 @@
                   <li><span class="gate-icon" aria-hidden="true">✓</span><div><strong>Rollback</strong><span>Owner and trigger recorded</span></div></li>
                   <li><span class="gate-icon pending" aria-hidden="true">!</span><div><strong>Performance evidence</strong><span>10k-row capture missing</span></div></li>
                 </ul>
-                <button class="primary-button" type="button">Request final evidence</button>
+                <button class="primary-button" type="button" disabled aria-describedby="visual-control-note">Request final evidence</button>
               </div>
             </aside>
           </div>
@@ -831,7 +853,7 @@
               <div class="state-symbol" aria-hidden="true">＋</div>
               <h2>No requirements yet</h2>
               <p>Start with one observable outcome. Add its owner, acceptance evidence, and failure boundary before the release grows.</p>
-              <button class="secondary-button" type="button">Add first requirement</button>
+              <button class="secondary-button" type="button" disabled aria-describedby="visual-control-note">Add first requirement</button>
             </div>
           </div>
         </section>
@@ -841,7 +863,7 @@
             <div class="system-state-inner">
               <div class="state-symbol" aria-hidden="true">!</div>
               <h2>The evidence service did not respond</h2>
-              <p>Your review is still saved locally. Retry the evidence request or continue with the last synchronized snapshot from 14:32 ICT.</p>
+              <p>This is a simulated failure. Retry switches to the loading preview; no evidence request is sent and no review data is saved.</p>
               <button class="primary-button" type="button" data-retry>Retry evidence request</button>
             </div>
           </div>

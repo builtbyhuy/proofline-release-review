@@ -18,6 +18,22 @@ produce an explicit `PASS`, `FAIL`, `BLOCKED`, or `NOT_APPLICABLE` decision.
 [Verification and handoff](docs/VERIFICATION.md) ·
 [Demo script](docs/DEMO_SCRIPT.md)
 
+## Start with one working component
+
+[Try the frontend samples](https://builtbyhuy.github.io/proofline-release-review/samples/2026-09-30/)
+for form validation, retained input, editable previews and local text/JSON exports.
+The directory explains a bounded first paid task: one form with up to eight
+agreed fields, source, relevant tests and a short handoff. Scope and price are
+agreed after reviewing the inputs; backend integration and production deployment
+need separate scoping. These samples are independent AI-assisted work.
+
+[Send a field list, mockup or reproducible bug](mailto:hohuyblon@gmail.com?subject=One%20web%20component).
+
+To inspect this root demo, choose **Error**, then **Retry evidence request**.
+The loading preview appears and keyboard focus moves to its visible control.
+The other release-action buttons are disabled visual examples; this demo does
+not save review data or request evidence from a service.
+
 ## Problem
 
 Release discussions often collapse requirements, evidence, risk, and ownership
@@ -33,9 +49,9 @@ inspectable evidence. This proof is relevant when acceptance criteria exist but
 ownership, evidence sufficiency, failure precedence, or the final go/no-go state
 is still ambiguous.
 
-The next action is to provide one fictional or sanitized release gate and its
-acceptance evidence for a bounded review. Proofline should not receive production
-credentials or be treated as a deployment controller.
+This is an implementation sample for the interface and decision boundaries
+described below. For paid work, use the component brief above. Proofline should
+not receive production credentials or be treated as a deployment controller.
 
 ## What is implemented
 
