@@ -1,0 +1,34 @@
+OBSERVED FACT
+Source: https://gotripod.com/contact
+Accessed: 2026-09-30; publication date unknown.
+The public enquiry flow contains Name, Email/Confirm Email, Phone, Enquiry and
+required privacy consent. Name/Phone are not marked required in the source
+extraction. A separate jobs route is published; this artifact sends nothing.
+
+WHAT WAS NOT ESTABLISHED
+The live email matching, consent validation, failure handling and backend were
+not tested. No current defect, lost sale, customer volume or manual workload is
+known. Hidden states in page extraction were not interpreted as observed errors.
+
+ACTUAL FREE SAMPLE
+index.html demonstrates matching-address checks, a demo-only consent condition,
+first-error focus, preserved entries after an explicitly simulated network
+failure, and a local retry/preview. This is independent example code, not an
+extraction or patch of GoTripod's private implementation.
+
+FIELDS CHECKED
+Email + confirmation: simple shape check and exact trimmed equality.
+Enquiry: nonblank after trimming. Consent: explicitly checked.
+Name and phone: optional; no phone-country or identity inference.
+The sample consent does not give GoTripod permission to contact anyone.
+
+CONDITIONAL VALUE
+Only if a repetitive QA task exists:
+hours saved = reviews per month × (manual minutes − assisted minutes) / 60.
+All inputs are unknown. Only an owner-provided labour cost could turn confirmed
+time savings into capacity value. No revenue-loss or monetary-saving claim.
+
+LIMIT
+No production integration, endpoint, deliverability verification, autosave,
+legal-policy implementation or proof the live site needs these changes.
+

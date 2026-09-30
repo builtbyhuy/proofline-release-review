@@ -1,0 +1,19 @@
+SplashSol — findings and boundaries
+Observed 2026-09-30. Undated first-party pages; access date is not publication date.
+
+OBSERVED
+The published careers application links to the project-contact route. Name, phone, email and optional website fields are retained here; branch-specific fields are additions in this prototype.
+
+NOT ESTABLISHED
+No live form failure, response delay, inbox inefficiency, lost lead or internal manual copying has been verified. No production submission was performed. Existing automation may already cover the same idea.
+
+WORKING SAMPLE
+Choose a project enquiry or freelance introduction, then create a labelled local summary. Inputs remain local. This small artifact demonstrates implementation and review behavior; it is not a full replacement for the company's form, inbox or CRM.
+
+HYPOTHESIS, NOT RESULT
+Explicit intent labels or inspectable output may be useful when reviewing an enquiry. The owner would need to identify a real workflow and measure the existing step before claiming any benefit. No volume, conversion or revenue estimate is supplied.
+
+SOURCES
+https://splashsol.com/contact-us/
+https://splashsol.com/careers/
+Retrieval references: turn943view0, turn933view1, turn934view5

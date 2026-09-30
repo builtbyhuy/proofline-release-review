@@ -1,0 +1,51 @@
+SOURCE FACTS AND LIMITS
+Observation date: 2026-09-30. Source publication dates: undated.
+Method: read-only primary-page text and published-link inspection.
+Sources:
+https://www.facilitydesignco.com/
+https://www.facilitydesignco.com/careers/
+
+The homepage extraction contained six consecutive links whose text was
+Visit Website. Their published destinations, in source order:
+F01 https://www.monolithcapital.com/
+F02 https://www.waycapital.com/
+F03 https://www.thelasvegasnightowls.com/
+F04 https://www.devtec.net/
+F05 https://hirshmark.com/
+F06 https://www.tenthavenuegroup.com/
+
+No current broken link or accessibility failure has been established.
+No destination was fetched by this sample. Full accessible names, image context,
+ARIA attributes, focus behavior, HTTP status, redirects, DNS and TLS were not
+audited. Repeated extracted text alone does not establish an accessibility defect.
+
+The careers page lists Junior Website Developer and includes HTML/CSS/JS,
+git, CMS integration, hosting and animation technologies. This sample addresses
+only bounded plain frontend/fixture-review work.
+
+DEMONSTRATION CHOICES
+Descriptive link labels are original text derived from the published domains.
+They are not quotations of Facility's live labels.
+Synthetic practice mode modifies only a cloned local dataset:
+F01: empty demo label.
+F02: destination changed to F01's URL.
+F03: deliberately disallowed javascript: URL.
+The three practice findings must never be described as Facility defects.
+No external destination links are enabled in practice mode.
+
+OWNER REVIEW
+A duplicate can be intentional. Intended labels and destinations need approval.
+No replacement URL is inferred. Validation results never trigger edits.
+Any implementation in the studio's site would require a separate agreed scope.
+
+TIME / MONEY
+Illustrative workload only: 6 links x 2 minutes = 12 minutes per review;
+3 reviews per month = 36 minutes. These are not measured Facility quantities.
+The fixture does not replace live link or accessibility review. Net time saving
+would require measuring setup, remaining checks and false-positive review.
+No cash saving, revenue increase or lost-sales figure is claimed.
+
+STATUS
+Independent free work sample, not endorsed or commissioned.
+No production probing, form submissions, messages, publication or ledger edits.
+

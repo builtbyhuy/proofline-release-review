@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mẫu rà soát mã danh mục phụ tùng, xử lý CSV ngay trong trình duyệt. Chỉ nêu các dòng cần chuyên viên đối chiếu.">
+  <title>Rà soát mã danh mục | Mẫu độc lập cho VHP</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="checker.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Đến nội dung chính</a>
+<header class="topbar"><span class="brand">MÃ / TÊN</span><span>Mẫu độc lập cho danh mục VHP</span><span class="pill">Không gửi dữ liệu</span></header>
+<main id="main">
+  <section class="hero" aria-labelledby="title">
+    <p class="eyebrow">MẪU MIỄN PHÍ · NGUỒN CÔNG KHAI</p>
+    <h1 id="title">Cùng mã.<br><span>Khác tên.</span><br>Cần đối chiếu.</h1>
+    <p class="intro">Tìm các dòng có mã sau chuẩn hóa giống nhau nhưng tên khác nhau. Giữ nguyên mã gốc và ID nội bộ để chuyên viên phụ tùng xem lại.</p>
+    <p class="scope">Không xác định mã nào đúng, không xác nhận mã OEM hay độ phù hợp với xe, không tự sửa hoặc gộp sản phẩm.</p>
+  </section>
+  <aside class="notice"><strong>Chỉ là dấu hiệu cần kiểm tra.</strong> Hai trang có thể dùng mã theo quy ước riêng. Chuyên viên phụ tùng cần xác minh nguồn mã trước mọi chỉnh sửa.</aside>
+
+  <section aria-labelledby="result-heading" class="results">
+    <div class="section-heading"><div><p class="eyebrow">01 / KẾT QUẢ</p><h2 id="result-heading">Danh sách cần xem lại</h2></div><button id="export" class="secondary" type="button">Tải kết quả CSV</button></div>
+    <div class="metrics" aria-label="Tổng quan kết quả"><div><strong id="row-count">0</strong><span>dòng dữ liệu</span></div><div class="metric-accent"><strong id="review-count">0</strong><span>nhóm cùng mã, khác tên</span></div><div><strong id="missing-count">0</strong><span>dòng thiếu tên hoặc mã</span></div></div>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <p class="small">Trong mẫu công khai, cả hai trang đều ghi <code>35100-04200 / 3510004200</code>. Mỗi dòng chọn một dạng đã xuất hiện trên nguồn để minh họa chuẩn hóa; không phải hai mã khác nhau.</p>
+    <div id="review-groups"></div>
+    <details class="all-rows"><summary>Xem toàn bộ dòng và phân loại</summary><div class="table-scroll"><table><caption class="sr-only">Tất cả dòng đã rà soát</caption><thead><tr><th scope="col">ID nội bộ</th><th scope="col">Tên</th><th scope="col">Mã đầu vào</th><th scope="col">Mã chuẩn hóa</th><th scope="col">Phân loại</th></tr></thead><tbody id="all-rows-body"></tbody></table></div></details>
+  </section>
+
+  <section class="import-section" aria-labelledby="import-heading">
+    <div class="section-heading"><div><p class="eyebrow">02 / THỬ VỚI DANH MỤC</p><h2 id="import-heading">Dán dữ liệu hoặc chọn CSV</h2></div><button id="reset" class="text-button" type="button">Khôi phục 2 dòng công khai</button></div>
+    <p>Hai cột bắt buộc: <code>name</code> và <code>code</code>. Có thể thêm <code>internal_id</code>, <code>source_url</code>, <code>evidence_date</code>. Chấp nhận CSV dấu phẩy hoặc bảng phân cách bằng tab.</p>
+    <label class="file-label" for="file">Chọn tệp CSV / TSV <span>Tối đa 2 MB, 2.000 dòng</span></label>
+    <input id="file" type="file" accept=".csv,.tsv,text/csv,text/tab-separated-values,text/plain">
+    <label for="csv-input" class="input-label">Nội dung danh mục</label>
+    <textarea id="csv-input" rows="8" spellcheck="false" aria-describedby="input-help"></textarea>
+    <p id="input-help" class="small">Dữ liệu chỉ nằm trong bộ nhớ của trang này. Không có máy chủ xử lý, lưu trữ, theo dõi hoặc API bên ngoài. Bản mẫu không lưu nội dung khi đóng trang.</p>
+    <div class="actions"><button id="analyze" type="button">Rà soát dữ liệu</button><p id="error" role="alert"></p></div>
+  </section>
+
+  <section class="method" aria-labelledby="method-heading"><p class="eyebrow">03 / CÁCH ĐỌC</p><h2 id="method-heading">Tín hiệu đối chiếu, không phải kết luận kỹ thuật</h2><div class="method-grid"><div><h3>Chuẩn hóa nhẹ</h3><p>Bỏ khoảng trắng và dấu gạch nối; chuẩn hóa ký tự toàn chiều rộng và chữ hoa. Không thay thế mã theo hãng, không suy ra mã tương đương.</p></div><div><h3>Tách ID khỏi mã</h3><p>ID 856 và 437 là hai ID nội bộ của hai dòng mẫu. ID không dùng để nhóm mã và không được coi là mã OEM.</p></div><div><h3>Cùng tên ≠ xung đột tên</h3><p>Các dòng cùng mã, cùng tên được giữ lại và phân loại riêng. Công cụ không tự gộp hay kết luận đó là sản phẩm trùng.</p></div></div></section>
+  <footer><p><strong>Nguồn mẫu:</strong> Hai trang sản phẩm công khai của phutungotohp.vn, ghi nhận ngày <time datetime="2026-09-30">30/09/2026</time>. Liên kết nguồn nằm trong từng dòng kết quả; dữ liệu không tự cập nhật.</p><p>Mẫu do Huy chuẩn bị với hỗ trợ AI. Đây là công cụ độc lập, không phải hệ thống hoặc tài liệu chính thức của VHP. Không có số liệu về đơn hàng, chuyển đổi, tiết kiệm hay doanh thu.</p></footer>
+</main>
+</body>
+</html>

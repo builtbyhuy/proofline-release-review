@@ -1,0 +1,34 @@
+OBSERVED FACT
+Source: https://agencylmc.com/connect/
+Accessed: 2026-09-30; publication date unknown.
+Public controls show Name, Email, Company, Phone and "Message 0 / 180".
+
+WHAT WAS NOT ESTABLISHED
+The live form's hard-limit enforcement, Unicode-counting method, business intent,
+user frustration, abandonment, message volume or lost revenue were not tested.
+No live form was submitted.
+
+ACTUAL FREE SAMPLE
+index.html provides a short-message counter beside a separate full-brief field.
+It never auto-truncates. Copying the short version requires a nonblank message
+within 180 UTF-16 code units. A user-requested local download preserves both
+versions and optional contact fields. The example is explicitly synthetic.
+
+FIELDS CHECKED
+Short message: documented UTF-16 code-unit count; 179/180/181 boundaries tested.
+Some emoji and combining text use more than one unit; visible guidance says so.
+Full brief: independent field, unchanged by short-message edits.
+Name/email/company/phone: optional local context, no transmission or validation
+claim. Export treats markup as literal text and creates a plain-text local file.
+
+CONDITIONAL VALUE
+Only if repeated rewriting is currently a problem:
+hours saved = brief-writing sessions × measured minutes avoided per session / 60.
+The session count and time difference are unknown. Visitor convenience is not
+automatically the agency's payroll saving, additional sales or recovered cash.
+
+LIMIT
+No LMC integration, live-message submission, AI writing service, autosave,
+guaranteed match to the production counter or assertion their current flow is
+broken. A talent-pool application would be a separate root-controlled action.
+

@@ -1,0 +1,19 @@
+Mother Tongue Design — findings and boundaries
+Observed 2026-09-30. Undated first-party pages; access date is not publication date.
+
+OBSERVED
+The public contact page uses Email, Subject and Message. The creative-network invitation and contact page publish the same work@ address. Category prefixes and optional context are prototype additions.
+
+NOT ESTABLISHED
+No live form failure, response delay, inbox inefficiency, lost lead or internal manual copying has been verified. No production submission was performed. Existing automation may already cover the same idea.
+
+WORKING SAMPLE
+Create a project note, freelance introduction or other enquiry without changing the original message. Inputs remain local. This small artifact demonstrates implementation and review behavior; it is not a full replacement for the company's form, inbox or CRM.
+
+HYPOTHESIS, NOT RESULT
+Explicit intent labels or inspectable output may be useful when reviewing an enquiry. The owner would need to identify a real workflow and measure the existing step before claiming any benefit. No volume, conversion or revenue estimate is supplied.
+
+SOURCES
+https://www.mothertonguedesign.com/contact
+https://www.mothertonguedesign.com/careers
+Retrieval references: turn943view1, turn934view0, turn936view1

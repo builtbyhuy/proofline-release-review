@@ -1,0 +1,20 @@
+Master Technology Labs — findings and boundaries
+Observed 2026-09-30. Undated first-party pages; access date is not publication date.
+
+OBSERVED
+Full Name, Email Address, Company Name, interest selector and project text come from the public contact form. Selector labels were read from public HTML. Optional timeline and budget fields are prototype additions, not claimed live fields.
+
+NOT ESTABLISHED
+No live form failure, response delay, inbox inefficiency, lost lead or internal manual copying has been verified. No production submission was performed. Existing automation may already cover the same idea.
+
+WORKING SAMPLE
+Turn the published enquiry fields into a text summary and inspectable JSON. Missing company, timing and budget remain explicit. Inputs remain local. This small artifact demonstrates implementation and review behavior; it is not a full replacement for the company's form, inbox or CRM.
+
+HYPOTHESIS, NOT RESULT
+Explicit intent labels or inspectable output may be useful when reviewing an enquiry. The owner would need to identify a real workflow and measure the existing step before claiming any benefit. No volume, conversion or revenue estimate is supplied.
+
+SOURCES
+https://www.mastertechlabs.com/contact
+https://www.mastertechlabs.com/careers
+Retrieval references: turn943view2, turn934view1, turn936view2
+Actual public HTML selector values: ai, web, marketing, product, automation, other. Labels reproduced in the prototype; optional timeline and budget inputs are additions.

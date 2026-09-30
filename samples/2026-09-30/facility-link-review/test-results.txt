@@ -1,0 +1,30 @@
+VERIFICATION — 2026-09-30
+
+Command: node --test tests.mjs
+Runtime: Node v24.19.0
+Result: 12 tests passed, 0 failed, 0 skipped.
+
+Coverage:
+- Six exact published destinations and extracted labels.
+- manifest.json agrees with the self-contained HTML baseline.
+- Clean dataset has zero local flags and explicitly says live checks not run.
+- Synthetic dataset yields exactly the intended three review flags.
+- Practice mutations cannot change the frozen published baseline.
+- Unsafe schemes, credentials, local/numeric hosts and malformed inputs rejected.
+- URL normalization detects fragment/default-port duplicates without merging paths.
+- Blank labels detected without silently rewriting source records.
+- Unknown modes rejected.
+- JSON export preserves source date, limitations and synthetic provenance.
+- Static checks find no remote assets, request APIs, forms or HTML injection sinks.
+
+Command: node browser-test.mjs
+Status at this checkpoint: NOT RUN TO COMPLETION.
+Playwright package is present but its Chromium executable was missing.
+The normal browser install failed with invalid/truncated download archives.
+No successful browser render, visual inspection, keyboard interaction, download
+or viewport result is claimed here. The runnable browser test is included for
+the parent to run when its shared browser is available; its planned assertions
+are not counted as passed tests.
+
+No destination website was requested or scanned by these tests.
+No production change, form submission, message or publication was performed.

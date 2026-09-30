@@ -1,0 +1,15 @@
+GHI CHÚ ĐỐI CHIẾU DANH MỤC - 30/09/2026
+
+Hai dòng công khai cần chuyên viên xem lại; cả hai trang đều ghi 35100-04200 / 3510004200:
+1. ID nội bộ 856 - Cụm bướm ga - dạng mã được chọn trong mẫu: 35100-04200
+   https://phutungotohp.vn/product/than-buom-ga-kia-morning-2012
+2. ID nội bộ 437 - Nắp van hằng nhiệt - dạng mã được chọn trong mẫu: 3510004200
+   https://phutungotohp.vn/product/nap-van-hang-nhiet-kia-morning
+
+Bỏ dấu gạch nối thì hai mã đều là 3510004200, trong khi tên hai dòng khác nhau. Đây chỉ là dấu hiệu cần đối chiếu. Chưa xác định dòng nào đúng/sai, mã OEM chính thức, độ phù hợp với xe hoặc ảnh hưởng tới đơn hàng/doanh thu.
+
+Mẫu miễn phí kèm theo chạy ngay bằng cách mở index.html. Mẫu nạp sẵn hai dòng trên, cho phép dán/chọn CSV riêng, giữ nguyên ID và mã gốc, phân biệt cùng tên với khác tên, rồi xuất kết quả CSV để người phụ trách kiểm tra. Không gửi hoặc thu thập dữ liệu nhập.
+
+Việc tiếp theo nên do chuyên viên phụ tùng quyết định: đối chiếu tài liệu mã và quy ước danh mục trước khi chỉnh sửa. Mẫu không tự cập nhật hoặc tự sửa website.
+
+Huy - mẫu độc lập, có hỗ trợ AI. Nguồn được ghi nhận ngày 30/09/2026; chưa có kết quả triển khai hoặc lợi ích tài chính được đo lường.

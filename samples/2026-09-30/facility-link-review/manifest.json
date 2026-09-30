@@ -1,0 +1,44 @@
+{
+  "observedDate": "2026-09-30",
+  "publicationDate": null,
+  "source": "https://www.facilitydesignco.com/",
+  "method": "Read-only primary-page text and published link inspection; full accessible names and availability untested.",
+  "records": [
+    {
+      "id": "F01",
+      "observedLabel": "Visit Website",
+      "demoLabel": "Visit monolithcapital.com — portfolio reference",
+      "url": "https://www.monolithcapital.com/"
+    },
+    {
+      "id": "F02",
+      "observedLabel": "Visit Website",
+      "demoLabel": "Visit waycapital.com — portfolio reference",
+      "url": "https://www.waycapital.com/"
+    },
+    {
+      "id": "F03",
+      "observedLabel": "Visit Website",
+      "demoLabel": "Visit thelasvegasnightowls.com — portfolio reference",
+      "url": "https://www.thelasvegasnightowls.com/"
+    },
+    {
+      "id": "F04",
+      "observedLabel": "Visit Website",
+      "demoLabel": "Visit devtec.net — portfolio reference",
+      "url": "https://www.devtec.net/"
+    },
+    {
+      "id": "F05",
+      "observedLabel": "Visit Website",
+      "demoLabel": "Visit hirshmark.com — portfolio reference",
+      "url": "https://hirshmark.com/"
+    },
+    {
+      "id": "F06",
+      "observedLabel": "Visit Website",
+      "demoLabel": "Visit tenthavenuegroup.com — portfolio reference",
+      "url": "https://www.tenthavenuegroup.com/"
+    }
+  ]
+}

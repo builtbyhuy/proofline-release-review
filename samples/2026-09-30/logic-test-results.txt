@@ -1,0 +1,93 @@
+
+vhp-catalog-check
+✔ normalizes published hyphenated and compact code without using internal IDs (1.007026ms)
+✔ two public rows produce one review group with separate IDs and preserved raw codes (1.043901ms)
+✔ identical names under a shared code are not different-name conflicts, even with different IDs (0.188124ms)
+✔ same internal ID does not group different codes (0.315695ms)
+✔ missing names and codes remain explicit incomplete rows (0.137407ms)
+✔ CSV parser handles BOM, quoted commas, quotes and multiline cells (0.432951ms)
+✔ TSV paste and optional columns work (0.163036ms)
+✔ malformed or ambiguous CSV is rejected with useful errors (0.5115ms)
+✔ export preserves separate rows and uses UTF-8 BOM for Vietnamese spreadsheets (0.867335ms)
+✔ CSV export neutralizes formula-like cells including leading whitespace (0.450558ms)
+✔ untrusted names remain plain strings and dangerous source links are rejected (0.282315ms)
+✔ limits prevent an accidental huge import and sample copy is independently analyzable (2.507094ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.693402
+
+gotripod-form-qa
+GoTripod: validation, preservation, retry and literal-text checks passed.
+
+splashsol-intake
+PASS synthetic fixture generates parseable independent JSON
+PASS invalid email rejected
+PASS blank required field rejected
+PASS invalid optional URL rejected only in active branch
+PASS HTML-like message preserved as inert export data
+PASS long message survives JSON round trip
+PASS no executable input rendering or remote clients
+PASS project and freelance output contain only relevant fields
+PASS hidden freelance URL cannot invalidate project
+PASS freelance skill required
+10 tests passed for SplashSol
+
+inventomo-time-preview
+Inventomo: exact-instant, three-zone, DST gap/overlap, rollover, validation and summary checks passed.
+
+mother-tongue-inbox
+PASS synthetic fixture generates parseable independent JSON
+PASS invalid email rejected
+PASS blank required field rejected
+PASS invalid optional URL rejected only in active branch
+PASS HTML-like message preserved as inert export data
+PASS long message survives JSON round trip
+PASS no executable input rendering or remote clients
+PASS all three intents produce distinct subjects and preserve message
+PASS subject strips line breaks without rewriting original
+9 tests passed for Mother Tongue Design
+
+mastertech-brief
+PASS synthetic fixture generates parseable independent JSON
+PASS invalid email rejected
+PASS blank required field rejected
+PASS invalid optional URL rejected only in active branch
+PASS HTML-like message preserved as inert export data
+PASS long message survives JSON round trip
+PASS no executable input rendering or remote clients
+PASS missing values stay null and are flagged
+PASS supplied extra context retained without inference
+PASS only published selector values allowed
+10 tests passed for Master Technology Labs
+
+facility-link-review
+✔ six source observations match exact public destination list (1.874261ms)
+✔ manifest.json and self-contained HTML retain the same observations (0.37166ms)
+✔ published fixture passes only local checks, never implies live testing (0.52429ms)
+✔ practice injects exactly three known review flags (0.306662ms)
+✔ practice and edited clones cannot mutate the published manifest (0.176335ms)
+✔ unsafe schemes, credentials, local hosts and obfuscated separators rejected (0.287683ms)
+✔ absolute public HTTPS URLs accepted without network and fragments normalized (0.223487ms)
+✔ duplicates normalized across fragment/default port, paths preserved (0.156926ms)
+✔ missing or whitespace labels flagged without overwriting original record (0.313111ms)
+✔ unknown mode rejected rather than silently represented as source data (0.341444ms)
+✔ export is valid JSON with source date, limitations and synthetic provenance (0.251329ms)
+✔ static page contains no remote assets, form submissions or DOM HTML injection (0.535366ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15.395685
+
+lmc-brief-composer
+LMC: boundary, Unicode counting, preservation and literal export checks passed.
+
+Sample suites: 8/8 passed.

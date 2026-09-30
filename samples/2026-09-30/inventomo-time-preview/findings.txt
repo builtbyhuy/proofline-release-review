@@ -1,0 +1,36 @@
+OBSERVED FACT
+Source: https://inventomo.com/contact
+Accessed: 2026-09-30; publication date unknown.
+A discovery-meeting interface asks full name, email, phone/WhatsApp, service,
+preferred date, time slot and project notes.
+
+WHAT WAS NOT ESTABLISHED
+No live time-zone bug, missing timezone feature, availability problem or booking
+failure was found. Actual slot options and backend logic were not inspected.
+No form was submitted and no meeting was committed.
+
+ACTUAL FREE SAMPLE
+index.html adds an independent reference/viewer-zone preview to a local mock of
+that field pattern. It converts one synthetic instant into Pakistan, New York
+and Vietnam views, retains service/notes in a copyable summary, and explicitly
+rejects ambiguous/nonexistent New York local times.
+
+FIELDS CHECKED
+Date: valid calendar date in 2000–2100. Time: HH:MM.
+Reference zone: one of four supported IANA identifiers.
+Conversion: exactly one matching UTC instant is required.
+Contact fields remain optional in this local preview, although the live form
+marks name/email/service required. No email is sent or verified.
+Service examples come from the public interface; time-slot choices are synthetic.
+
+CONDITIONAL VALUE
+Only if timezone clarification currently takes staff time:
+hours saved = avoided clarification count × measured minutes per clarification / 60.
+Frequency, current handling time and achievable reduction are unknown.
+No monetary or sales-loss claim is defensible from the public form alone.
+
+LIMIT
+Not a scheduler, calendar integration, availability check, meeting confirmation,
+universal timezone library or patch of Inventomo's implementation. Future
+time-zone rules depend on the browser's Intl database.
+

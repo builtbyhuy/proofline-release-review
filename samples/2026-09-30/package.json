@@ -1,0 +1,9 @@
+{
+  "name": "huy-independent-work-samples",
+  "private": true,
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "Eight small independent work samples using dated public observations and labelled synthetic inputs.",
+  "scripts": { "test": "node run-tests.cjs" },
+  "engines": { "node": ">=20" }
+}

@@ -1,8 +1,12 @@
 # Proofline Release Review
 
-> **Independent technical work sample.** All requirements, names, dates,
-> evidence, and release behavior are fictional. This is not client work, a live
-> release system, or evidence of a production outcome.
+> **Independent technical work sample.** The main Proofline application's requirements,
+> names, dates, evidence and release behavior are fictional. This is not client work,
+> a live release system or evidence of a production outcome.
+>
+> The separate [30 September work samples](samples/2026-09-30/README.md) use explicitly
+> cited public observations and labelled synthetic inputs. They are independent
+> AI-assisted prototypes, not commissioned work, endorsements or deployed client fixes.
 
 A self-contained release-review interface plus an executable acceptance model.
 It shows how requirements, evidence, failure states, and unresolved gates can

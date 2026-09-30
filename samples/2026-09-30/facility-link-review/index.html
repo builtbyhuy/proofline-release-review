@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Portfolio link review — independent Facility work sample</title>
+<style>
+:root{color-scheme:light;--ink:#172b28;--muted:#536660;--line:#cbd6cc;--paper:#f8faf5;--green:#15533e;--pale:#e9f2df;--warn:#744800;--amber:#fff1d4}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--green);text-underline-offset:.2em}a:hover{text-decoration-thickness:2px}
+button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #b34b10;outline-offset:4px}
+.skip{position:absolute;left:12px;top:-80px;background:white;padding:12px;z-index:2}.skip:focus{top:12px}
+header,main,footer{width:min(1120px,calc(100% - 40px));margin:auto}
+header{padding:46px 0 28px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.77rem;text-transform:uppercase;letter-spacing:.15em;font-weight:750;color:var(--green)}
+h1{font-size:clamp(2.15rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.045em;max-width:820px;margin:13px 0 20px}
+h2{font-size:1.3rem;line-height:1.3;margin:0 0 10px}h3{font-size:1.06rem;margin:0 0 8px}
+p{margin:0 0 14px}.intro{max-width:800px;font-size:1.1rem}.muted{color:var(--muted)}.small{font-size:.88rem}.tag{display:inline-block;border:1px solid var(--line);border-radius:100px;padding:4px 11px;margin:3px 6px 0 0;font-size:.77rem;font-weight:650}
+main{padding:28px 0 30px}.notice{padding:18px 20px;border-left:4px solid var(--green);background:var(--pale);margin-bottom:26px}
+fieldset{margin:0;padding:0;border:0}legend{font-weight:750;margin-bottom:12px}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mode{display:flex;align-items:flex-start;gap:12px;background:white;border:1px solid var(--line);border-radius:12px;padding:18px;cursor:pointer}.mode:has(input:checked){border:2px solid var(--green);padding:17px;background:#f0f6eb}.mode input{margin-top:5px;accent-color:var(--green);width:19px;height:19px;flex-shrink:0}.mode strong,.mode span span{display:block}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}.metric{border:1px solid var(--line);padding:15px 18px;border-radius:10px;background:white}.metric strong{display:block;font-size:1.55rem;line-height:1.25}.metric span{font-size:.83rem;color:var(--muted)}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:28px 0 16px}.toolbar p{margin:0}.button{border:1px solid var(--green);border-radius:8px;background:var(--green);color:white;font-weight:650;padding:11px 16px;white-space:nowrap}
+#mode-note{padding:13px 16px;border:1px solid var(--line);border-radius:8px;background:white;margin-bottom:16px}#mode-note.practice{background:var(--amber);border-color:#d3b76f}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{min-width:0;padding:20px;background:white;border:1px solid var(--line);border-radius:12px}.card.flagged{border-color:#be9442}
+.card-top{display:flex;justify-content:space-between;gap:8px;align-items:start;margin-bottom:12px}.record-id{font-size:.75rem;color:var(--muted);letter-spacing:.06em}
+.status{font-size:.72rem;font-weight:700;background:var(--pale);border-radius:100px;padding:4px 9px;white-space:nowrap}.status.warn{background:var(--amber);color:var(--warn)}
+dl{margin:10px 0 15px}dt{font-size:.73rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:12px}dd{margin:2px 0 0;overflow-wrap:anywhere;font-size:.92rem}code{font-size:.88em}
+.flag{margin:10px 0 0;padding:10px 12px;border-radius:7px;background:var(--amber);color:#5b3d07;font-size:.87rem}.open{font-size:.87rem;display:inline-block;margin-top:6px}.blocked{color:var(--muted);font-size:.86rem}
+details{border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-top:22px;background:white}summary{cursor:pointer;font-weight:700}details>div{padding-top:16px}.source-list{padding-left:22px}.source-list li{margin:8px 0;overflow-wrap:anywhere}.table-scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:610px}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid var(--line)}th{color:var(--muted)}td:last-child{overflow-wrap:anywhere}
+footer{padding:24px 0 40px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+#action-status{min-height:1.6em;margin-top:12px}.noscript{padding:20px;background:var(--amber)}
+@media(max-width:700px){header,main,footer{width:calc(100% - 28px)}header{padding-top:30px}.modes,.cards{grid-template-columns:1fr}.metrics{gap:7px}.metric{padding:12px 10px}.metric strong{font-size:1.3rem}.metric span{font-size:.72rem}.toolbar{align-items:flex-start;flex-direction:column}.card{padding:17px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to review</a>
+<header>
+<div class="eyebrow">Independent development sample · Huy · 30 September 2026</div>
+<h1>A small, repeatable<br>portfolio link review.</h1>
+<p class="intro">Six public destinations from Facility Design Studio’s homepage, organized into an inspectable local manifest. Switch on practice faults to see exactly what the checks catch.</p>
+<span class="tag">No automatic network requests</span><span class="tag">No dependencies</span><span class="tag">No live-site verdict</span>
+</header>
+<main id="main">
+<div class="notice"><strong>Observation is separate from diagnosis.</strong> The retrieved homepage text uses “Visit Website” for these six links. Full accessible names, visual context, destination availability and keyboard behavior were <strong>not tested</strong>. This sample does not claim any published link is broken or inaccessible.</div>
+<noscript><p class="noscript">JavaScript is required for the local fixture checker. The source facts remain in findings.txt and manifest.json. Nothing will be sent.</p></noscript>
+<fieldset>
+<legend>Choose the review dataset</legend>
+<div class="modes">
+<label class="mode"><input type="radio" name="mode" value="published" checked><span><strong>Published references</strong><span class="small muted">Observed destinations, with descriptive demo labels written for this sample.</span></span></label>
+<label class="mode"><input type="radio" name="mode" value="practice"><span><strong>Synthetic fault practice</strong><span class="small muted">Deliberately blank one demo label, duplicate one URL and inject one unsafe URL.</span></span></label>
+</div>
+</fieldset>
+<div class="metrics" aria-label="Local review totals">
+<div class="metric"><strong id="record-count">6</strong><span>fixture records</span></div>
+<div class="metric"><strong id="flag-count">0</strong><span>local review flags</span></div>
+<div class="metric"><strong>Not run</strong><span>live HTTP / accessibility checks</span></div>
+</div>
+<p id="mode-note" role="status" aria-live="polite"></p>
+<div class="toolbar"><div><h2>Link manifest</h2><p class="muted small">Flags ask for human review. They never change a website.</p></div><button class="button" type="button" id="download">Download this review (.json)</button></div>
+<section id="cards" class="cards" aria-label="Six portfolio reference records"></section>
+<p id="action-status" class="small muted" role="status" aria-live="polite"></p>
+<details><summary>Exact published observations and sources</summary><div>
+<p class="small">Read-only text/link inspection on <strong>2026-09-30</strong>. The source page is undated; this is the observation date, not its publication date. Descriptive demo labels below are our own link text, not a claim about Facility’s rendered accessible names.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">Record</th><th scope="col">Extracted link text</th><th scope="col">Observed destination</th></tr></thead><tbody id="source-rows"></tbody></table></div>
+<ul class="source-list small">
+<li><a href="https://www.facilitydesignco.com/" target="_blank" rel="noopener noreferrer">Facility homepage — source of the six links</a></li>
+<li><a href="https://www.facilitydesignco.com/careers/" target="_blank" rel="noopener noreferrer">Facility careers — public Junior Website Developer invitation</a></li>
+</ul>
+<p class="small muted">External links open only after your explicit click. Clicking them leaves the offline sample and may contact those public websites. The sample itself does not fetch, ping, scan, submit forms, load remote assets or use analytics.</p>
+</div></details>
+<details><summary>What the checks can and cannot tell you</summary><div>
+<p>Checks flag empty <em>demo</em> labels, malformed or disallowed URLs, and repeated normalized destinations. Duplicate URLs may be intentional; an owner must decide. Passing these checks only means the local records meet these rules.</p>
+<p>There is no verification of HTTP status, redirects, DNS, TLS, page content, WCAG conformance, visible labels, ARIA names or production behavior. There are no known correct replacement destinations to apply.</p>
+<p class="small muted">Practice changes: F01 gets an empty demo label; F02 points to F01’s destination; F03 gets a deliberately invalid <code>javascript:</code> URL. The original source manifest never changes. Return to Published references to reset.</p>
+</div></details>
+<details><summary>Could this save review time?</summary><div>
+<p><strong>Illustrative workload assumption:</strong> six links × two minutes of manual review = 12 minutes per review; three reviews a month = 36 minutes. Those are not measured Facility figures or a net-savings claim.</p>
+<p class="small muted">This fixture cannot replace opening destinations or checking accessibility. Any actual saving would need a timed comparison that includes setup, false-positive review and the live checks still required. No revenue or cash saving is claimed.</p>
+</div></details>
+</main>
+<footer><p><strong>Independent prototype, not endorsed by Facility Design Studio.</strong> Built by Huy with AI assistance as a junior HTML/CSS/JavaScript work sample. Uses public link facts only, with no client designs, logos, testimonials, private data or production code.</p><p>Open index.html directly. This folder also includes README.txt, findings.txt, manifest.json and tests.mjs.</p></footer>
+
+<script id="review-core">
+(function(root){
+"use strict";
+const MANIFEST = Object.freeze([
+{id:"F01",observedLabel:"Visit Website",demoLabel:"Visit monolithcapital.com — portfolio reference",url:"https://www.monolithcapital.com/"},
+{id:"F02",observedLabel:"Visit Website",demoLabel:"Visit waycapital.com — portfolio reference",url:"https://www.waycapital.com/"},
+{id:"F03",observedLabel:"Visit Website",demoLabel:"Visit thelasvegasnightowls.com — portfolio reference",url:"https://www.thelasvegasnightowls.com/"},
+{id:"F04",observedLabel:"Visit Website",demoLabel:"Visit devtec.net — portfolio reference",url:"https://www.devtec.net/"},
+{id:"F05",observedLabel:"Visit Website",demoLabel:"Visit hirshmark.com — portfolio reference",url:"https://hirshmark.com/"},
+{id:"F06",observedLabel:"Visit Website",demoLabel:"Visit tenthavenuegroup.com — portfolio reference",url:"https://www.tenthavenuegroup.com/"}
+].map(Object.freeze));
+function safeUrl(value){
+ if(typeof value!=="string" || value.trim()!==value || /[\u0000-\u0020\u007f\\]/.test(value))return {ok:false,reason:"Use an absolute HTTPS URL without whitespace, control characters or backslashes."};
+ try{
+  const u=new URL(value);
+  if(u.protocol!=="https:")return {ok:false,reason:"Only HTTPS destinations are allowed in this demo."};
+  if(u.username || u.password)return {ok:false,reason:"URLs containing credentials are not allowed."};
+  const host=u.hostname.toLowerCase();
+  if(!host.includes(".") || host.endsWith(".") || host.endsWith(".local") || host.endsWith(".localhost") || /^[\d.]+$/.test(host) || host.includes(":") || u.port)return {ok:false,reason:"Use a public domain name with the standard HTTPS port; local and numeric hosts are not allowed."};
+  u.hash="";
+  return {ok:true,canonical:u.href};
+ }catch{return {ok:false,reason:"This is not a well-formed absolute URL."};}
+}
+function dataset(mode){
+ const rows=MANIFEST.map(r=>({...r,syntheticChanges:[]}));
+ if(mode==="practice"){
+  rows[0].demoLabel="";rows[0].syntheticChanges.push("Blank demo label injected");
+  rows[1].url=rows[0].url;rows[1].syntheticChanges.push("Duplicate destination injected");
+  rows[2].url="javascript:alert('synthetic-test-only')";rows[2].syntheticChanges.push("Unsafe URL injected; never made clickable");
+ }else if(mode!=="published"){throw new Error("Unknown dataset mode");}
+ return rows;
+}
+function review(rows){
+ const seen=new Map();
+ return rows.map(row=>{
+  const flags=[];
+  if(typeof row.demoLabel!=="string" || !row.demoLabel.trim())flags.push({code:"EMPTY_DEMO_LABEL",message:"The demo label is empty. Supply descriptive text after owner review; this is not a finding about the source website."});
+  const url=safeUrl(row.url);
+  if(!url.ok)flags.push({code:"UNSAFE_OR_INVALID_URL",message:url.reason});
+  else if(seen.has(url.canonical))flags.push({code:"DUPLICATE_DESTINATION",message:"Same normalized destination as "+seen.get(url.canonical)+". This may be intentional; owner review is required."});
+  else seen.set(url.canonical,row.id);
+  return {...row,safeDestination:url.ok?url.canonical:null,flags};
+ });
+}
+function report(mode){
+ const checked=review(dataset(mode));
+ return {title:"Independent Facility portfolio reference review",observedDate:"2026-09-30",source:"https://www.facilitydesignco.com/",mode,synthetic:mode==="practice",liveChecksPerformed:false,endorsement:"Independent sample; not endorsed by Facility Design Studio.",limitations:["No claim of broken published links or accessibility failure.","Full source accessible names, HTTP availability and keyboard behavior untested.","Descriptive demo labels are original sample text.","Review flags need owner interpretation; correct replacement URLs are unknown."],reviewFlagCount:checked.reduce((n,r)=>n+r.flags.length,0),records:checked};
+}
+root.FacilityLinkReview=Object.freeze({manifest:MANIFEST,safeUrl,dataset,review,report});
+})(globalThis);
+</script>
+<script id="review-ui">
+(function(){
+"use strict";
+const api=globalThis.FacilityLinkReview;
+const el=id=>document.getElementById(id);
+let mode="published";
+function node(tag,text,className){
+ const n=document.createElement(tag);
+ if(text!==undefined)n.textContent=text;
+ if(className)n.className=className;
+ return n;
+}
+function field(dl,label,value){
+ dl.append(node("dt",label),node("dd",value));
+}
+function render(){
+ const data=api.report(mode);
+ el("cards").replaceChildren();
+ el("record-count").textContent=String(data.records.length);
+ el("flag-count").textContent=String(data.reviewFlagCount);
+ el("mode-note").className=mode==="practice"?"practice":"";
+ el("mode-note").textContent=mode==="practice"?"SYNTHETIC PRACTICE: 3 deliberate faults are active below. They are not observations about Facility or its clients.":"PUBLISHED REFERENCES: 0 local fixture flags. These six URLs are source observations; the descriptive demo labels are ours. Live sites remain untested.";
+ for(const r of data.records){
+  const article=node("article",undefined,"card"+(r.flags.length?" flagged":""));
+  const top=node("div",undefined,"card-top");
+  top.append(node("span",r.id,"record-id"),node("span",r.flags.length?"Owner review":"Local checks pass","status"+(r.flags.length?" warn":"")));
+  article.append(top,node("h3",r.demoLabel||"[Intentionally blank demo label]"));
+  const dl=node("dl");
+  field(dl,"Observed source link text",r.observedLabel);
+  field(dl,"Current fixture destination",r.url);
+  if(r.syntheticChanges.length)field(dl,"Synthetic change",r.syntheticChanges.join("; "));
+  article.append(dl);
+  for(const f of r.flags)article.append(node("p",f.message,"flag"));
+  if(mode==="published" && r.safeDestination){
+   const a=node("a",r.demoLabel+" ↗","open");
+   a.href=r.safeDestination;a.target="_blank";a.rel="noopener noreferrer";article.append(a);
+  }else article.append(node("p","External navigation is disabled throughout practice mode.","blocked"));
+  el("cards").append(article);
+ }
+}
+for(const r of api.manifest){
+ const tr=node("tr");tr.append(node("td",r.id),node("td",r.observedLabel),node("td",r.url));el("source-rows").append(tr);
+}
+document.querySelectorAll('input[name="mode"]').forEach(input=>input.addEventListener("change",()=>{
+ mode=input.value;el("action-status").textContent="";render();
+}));
+el("download").addEventListener("click",()=>{
+ const body=JSON.stringify(api.report(mode),null,2)+"\n";
+ const blob=new Blob([body],{type:"application/json"});
+ const localUrl=URL.createObjectURL(blob);
+ const a=document.createElement("a");a.href=localUrl;a.download="facility-"+mode+"-local-review.json";document.body.append(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(localUrl),1000);
+ el("action-status").textContent="Local "+mode+" review downloaded. No website was contacted.";
+});
+render();
+})();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,12 @@
+QA RECORD — 2026-09-30
+
+Inventomo: exact-instant, three-zone, DST gap/overlap, rollover, validation and summary checks passed.
+Node.js v24.19.0. logic.js, app.js and test.cjs syntax checks passed.
+All required source and documentation files are nonempty.
+Code check: no fetch, XHR or localStorage; Content Security Policy blocks
+network connections and form actions. No live form was submitted.
+
+Rendered/browser verification: NOT COMPLETED by this builder.
+The available Playwright package could not launch because its Chromium binary
+is absent. No installation was attempted. Root will review in the existing
+browser before sharing. Do not claim a completed visual/mobile/browser test.

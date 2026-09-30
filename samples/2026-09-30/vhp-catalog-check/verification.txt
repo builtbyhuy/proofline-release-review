@@ -1,0 +1,13 @@
+VERIFICATION RECORD - 2026-09-30
+
+Core command: node --test checker.test.js
+Result: 12 tests passed, 0 failed, 0 skipped.
+Coverage: normalized code variants, two distinct internal IDs, different-name review groups, same-name non-conflicts, incomplete rows, quoted/multiline CSV, TSV, malformed input, export row retention, spreadsheet-formula neutralization, unsafe source URL rejection and import limits.
+
+The module is dependency-free and uses only Node built-ins for tests. The browser interface uses local CSS/JS and textContent/createElement for user-controlled content; no innerHTML or external network API is used.
+
+Both public product pages were independently opened on 2026-09-30. Each publishes the code text 35100-04200 / 3510004200. The short names and internal product IDs are 856 / Cụm bướm ga and 437 / Nắp van hằng nhiệt. A representative code form is selected per seed row only to illustrate normalization.
+
+Browser-render limitation: local Playwright was present but no Chromium executable was installed. An isolated official browser download returned an invalid/truncated archive and failed. No successful browser UI test or screenshot is claimed by this record. Root agent will perform browser UI QA separately before publication.
+
+No website publication, messages, form submissions, account connection or modifications to the prospect's website were made.
